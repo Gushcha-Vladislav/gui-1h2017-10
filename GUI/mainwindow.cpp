@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //QWidget::setWindowFlags(Qt::FramelessWindowHint);
+    QWidget::setWindowFlags(Qt::FramelessWindowHint);
 
     MainWindow::setGeometry(
         QStyle::alignedRect(
@@ -20,18 +20,17 @@ MainWindow::MainWindow(QWidget *parent) :
             qApp->desktop()->availableGeometry()
         )
     );
+    ui->pushButton->setEnabled(true);
 
-
-//QObject::connect(ui->pushButton, SIGNAL(clicked()), qApp, SLOT(quit()));
-
-
+    //connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(close()));
 }
 
 void MainWindow::on_pushButton_clicked(){
-
+    close();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
