@@ -10,5 +10,7 @@
         <file>pictures/soup.jpg</file>
         <file>pictures/des.jpg</file>
         <file>pictures/drinks.jpg</file>
+        <file>pictures/g.jpg</file>
+        <file>pictures/osn.jpg</file>
     </qresource>
 </RCC>
