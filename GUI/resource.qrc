@@ -3,5 +3,12 @@
         <file>pictures/main_background.jpg</file>
         <file>pictures/main_background.png</file>
         <file>pictures/background.png</file>
+        <file>pictures/close.png</file>
+        <file>pictures/question.png</file>
+        <file>pictures/sticker.png</file>
+        <file>pictures/salad.jpg</file>
+        <file>pictures/soup.jpg</file>
+        <file>pictures/des.jpg</file>
+        <file>pictures/drinks.jpg</file>
     </qresource>
 </RCC>

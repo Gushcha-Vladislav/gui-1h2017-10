@@ -12,7 +12,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1146</width>
+    <width>1149</width>
     <height>667</height>
    </rect>
   </property>
@@ -55,12 +55,21 @@
          <rect>
           <x>1030</x>
           <y>-10</y>
-          <width>71</width>
-          <height>51</height>
+          <width>51</width>
+          <height>41</height>
          </rect>
         </property>
+        <property name="cursor">
+         <cursorShape>WhatsThisCursor</cursorShape>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-image: url(:/resource/pictures/question.png);</string>
+        </property>
         <property name="text">
-         <string>?</string>
+         <string/>
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton">
@@ -69,14 +78,23 @@
         </property>
         <property name="geometry">
          <rect>
-          <x>1090</x>
+          <x>1080</x>
           <y>-10</y>
-          <width>61</width>
+          <width>71</width>
           <height>51</height>
          </rect>
         </property>
+        <property name="cursor">
+         <cursorShape>OpenHandCursor</cursorShape>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-image: url(:/resource/pictures/close.png);</string>
+        </property>
         <property name="text">
-         <string>X</string>
+         <string/>
         </property>
        </widget>
       </widget>
@@ -99,15 +117,495 @@
         <string notr="true">background-color: rgb(255, 170, 0);
 </string>
        </property>
-       <zorder>openGLWidget</zorder>
-       <zorder>widget_3</zorder>
+       <widget class="QWidget" name="widget_3" native="true">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>381</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <widget class="QPushButton" name="pushButton_3">
+         <property name="geometry">
+          <rect>
+           <x>-10</x>
+           <y>-8</y>
+           <width>401</width>
+           <height>81</height>
+          </rect>
+         </property>
+         <property name="palette">
+          <palette>
+           <active>
+            <colorrole role="Button">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>170</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Text">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Base">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>170</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Window">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>170</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+           </active>
+           <inactive>
+            <colorrole role="Button">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>170</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Text">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Base">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>170</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Window">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>170</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+           </inactive>
+           <disabled>
+            <colorrole role="Button">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>170</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Text">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>120</red>
+               <green>120</green>
+               <blue>120</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Base">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>170</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Window">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>170</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+           </disabled>
+          </palette>
+         </property>
+         <property name="font">
+          <font>
+           <family>Avdira</family>
+           <pointsize>26</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>OpenHandCursor</cursorShape>
+         </property>
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 170, 0);</string>
+         </property>
+         <property name="text">
+          <string>Рецепты</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="widget_4" native="true">
+        <property name="geometry">
+         <rect>
+          <x>380</x>
+          <y>0</y>
+          <width>381</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <widget class="QPushButton" name="pushButton_4">
+         <property name="geometry">
+          <rect>
+           <x>-6</x>
+           <y>-8</y>
+           <width>401</width>
+           <height>81</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Avdira</family>
+           <pointsize>26</pointsize>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>OpenHandCursor</cursorShape>
+         </property>
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 170, 0);</string>
+         </property>
+         <property name="text">
+          <string>Мои рецепты</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="widget_6" native="true">
+        <property name="geometry">
+         <rect>
+          <x>760</x>
+          <y>0</y>
+          <width>391</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <widget class="QPushButton" name="pushButton_5">
+         <property name="geometry">
+          <rect>
+           <x>-10</x>
+           <y>-10</y>
+           <width>401</width>
+           <height>91</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Avdira</family>
+           <pointsize>26</pointsize>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>OpenHandCursor</cursorShape>
+         </property>
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 170, 0);</string>
+         </property>
+         <property name="text">
+          <string>Избранное</string>
+         </property>
+        </widget>
+       </widget>
       </widget>
      </item>
     </layout>
    </widget>
-   <zorder>verticalLayoutWidget</zorder>
-   <zorder>verticalLayoutWidget_2</zorder>
-   <zorder>widget_2</zorder>
+   <widget class="QWidget" name="widget_5" native="true">
+    <property name="geometry">
+     <rect>
+      <x>980</x>
+      <y>240</y>
+      <width>381</width>
+      <height>71</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="salad">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>140</y>
+      <width>181</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>OpenHandCursor</cursorShape>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string>QPushButton#salad {border-image: url(:/resource/pictures/sticker.png);}</string>
+    </property>
+    <widget class="QWidget" name="widget_7" native="true">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>20</y>
+       <width>131</width>
+       <height>80</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>OpenHandCursor</cursorShape>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/resource/pictures/salad.jpg);</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="soup">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>140</y>
+      <width>181</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>OpenHandCursor</cursorShape>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string>QPushButton#soup {border-image: url(:/resource/pictures/sticker.png);}</string>
+    </property>
+    <widget class="QWidget" name="widget_8" native="true">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>20</y>
+       <width>131</width>
+       <height>80</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>OpenHandCursor</cursorShape>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/resource/pictures/soup.jpg);</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="g">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>310</y>
+      <width>181</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>OpenHandCursor</cursorShape>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string>QPushButton#g {border-image: url(:/resource/pictures/sticker.png);}</string>
+    </property>
+    <widget class="QWidget" name="widget_9" native="true">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>20</y>
+       <width>131</width>
+       <height>80</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>OpenHandCursor</cursorShape>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="osn">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>310</y>
+      <width>181</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>OpenHandCursor</cursorShape>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string>QPushButton#osn {border-image: url(:/resource/pictures/sticker.png);}</string>
+    </property>
+    <widget class="QWidget" name="widget_10" native="true">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>20</y>
+       <width>131</width>
+       <height>80</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>OpenHandCursor</cursorShape>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="desert">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>480</y>
+      <width>181</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>OpenHandCursor</cursorShape>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string>QPushButton#desert {border-image: url(:/resource/pictures/sticker.png);}</string>
+    </property>
+    <widget class="QWidget" name="widget_11" native="true">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>20</y>
+       <width>131</width>
+       <height>80</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>OpenHandCursor</cursorShape>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/resource/pictures/des.jpg);</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="drinks">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>480</y>
+      <width>181</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>OpenHandCursor</cursorShape>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string>QPushButton#drinks {border-image: url(:/resource/pictures/sticker.png);}</string>
+    </property>
+    <widget class="QWidget" name="widget_12" native="true">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>20</y>
+       <width>131</width>
+       <height>80</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>OpenHandCursor</cursorShape>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/resource/pictures/drinks.jpg);</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>250</y>
+      <width>81</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Avdira</family>
+      <pointsize>18</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>OpenHandCursor</cursorShape>
+    </property>
+    <property name="text">
+     <string>Супы</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
