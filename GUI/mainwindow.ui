@@ -599,7 +599,7 @@
      </property>
     </widget>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="label_soup">
     <property name="geometry">
      <rect>
       <x>420</x>
@@ -623,7 +623,7 @@
      <string>Супы</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="label_salad">
     <property name="geometry">
      <rect>
       <x>130</x>
@@ -647,7 +647,7 @@
      <string>Салаты</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="label_desert">
     <property name="geometry">
      <rect>
       <x>130</x>
@@ -671,7 +671,7 @@
      <string>Десерты</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QLabel" name="label_drinks">
     <property name="geometry">
      <rect>
       <x>390</x>
@@ -695,7 +695,7 @@
      <string>Напитки</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
+   <widget class="QLabel" name="label_g">
     <property name="geometry">
      <rect>
       <x>130</x>
@@ -719,7 +719,7 @@
      <string>Гарниры</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_6">
+   <widget class="QLabel" name="label_osn">
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -743,7 +743,7 @@
      <string>Основные</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_7">
+   <widget class="QLabel" name="label_osn2">
     <property name="geometry">
      <rect>
       <x>450</x>
@@ -766,6 +766,38 @@
     <property name="text">
      <string>блюда</string>
     </property>
+   </widget>
+   <widget class="QListWidget" name="listWidget">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>130</y>
+      <width>481</width>
+      <height>511</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 255, 255, 162), stop:1 rgba(255, 255, 255, 176));
+border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 255, 255, 162), stop:1 rgba(255, 255, 255, 176));</string>
+    </property>
+    <item>
+     <property name="text">
+      <string> Шоколадный десерт</string>
+     </property>
+     <property name="font">
+      <font>
+       <family>Avdira</family>
+       <pointsize>16</pointsize>
+       <italic>false</italic>
+      </font>
+     </property>
+     <property name="textAlignment">
+      <set>AlignCenter</set>
+     </property>
+    </item>
    </widget>
   </widget>
  </widget>
