@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QListWidget>
 #include "window.h"
+#include "about.h"
 #include <QPropertyAnimation>
 
 namespace Ui {
@@ -39,9 +40,12 @@ private slots:
 
     void on_listWidget_clicked(const QModelIndex &index);
 
+    void on_pushButton_2_clicked();
+
 private:
     Ui::MainWindow *ui;
     Window *window;
+    About *about;
 };
 
 #endif // MAINWINDOW_H

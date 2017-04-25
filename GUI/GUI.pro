@@ -14,17 +14,22 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    window.cpp
+    window.cpp \
+    about.cpp
 
 HEADERS  += mainwindow.h \
-    window.h
+    window.h \
+    about.h
 
 FORMS    += mainwindow.ui \
-    window.ui
+    window.ui \
+    about.ui
 
 CONFIG += mobility
 MOBILITY = 
 
 RESOURCES += \
     resource.qrc
+
+DISTFILES +=
 

@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "window.h"
+#include "about.h"
 #include <QApplication>
 
 

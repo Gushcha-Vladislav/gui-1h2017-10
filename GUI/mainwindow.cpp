@@ -32,8 +32,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButton->setEnabled(true);
     ui->listWidget->hide();
     window= new Window();
+    about=new About();
     connect(window, &Window::firstWindow, this, &MainWindow::show);
-
+    connect(about, &About::firstWindow, this, &MainWindow::show);
 }
 
 void MainWindow::on_pushButton_clicked(){
@@ -134,4 +135,11 @@ void MainWindow::on_listWidget_clicked(const QModelIndex &index)
 {
     window->show();
     this->close();
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+
+    about->show();
+
 }
