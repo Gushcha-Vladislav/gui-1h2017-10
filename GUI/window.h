@@ -2,6 +2,7 @@
 #define WINDOW_H
 
 #include <QMainWindow>
+#include "about.h"
 
 namespace Ui {
 class Window;
@@ -22,8 +23,11 @@ private slots:
 
     void on_pushButton_6_clicked();
 
+    void on_pushButton_2_clicked();
+
 private:
     Ui::Window *ui;
+    About *about;
 };
 
 #endif // WINDOW_H

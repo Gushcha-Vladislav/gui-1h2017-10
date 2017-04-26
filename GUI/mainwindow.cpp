@@ -3,6 +3,7 @@
 #include <QStyle>
 #include <QDesktopWidget>
 #include <QPushButton>
+#include <QMessageBox>
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -140,6 +141,9 @@ void MainWindow::on_listWidget_clicked(const QModelIndex &index)
 void MainWindow::on_pushButton_2_clicked()
 {
 
+    about->setWindowModality(Qt::ApplicationModal);
     about->show();
+    about->raise();
+    about->setFocus(Qt::ActiveWindowFocusReason);
 
 }

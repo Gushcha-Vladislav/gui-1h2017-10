@@ -16,6 +16,7 @@ About::About(QWidget *parent) :
             qApp->desktop()->availableGeometry()
         )
     );
+
 }
 
 About::~About()

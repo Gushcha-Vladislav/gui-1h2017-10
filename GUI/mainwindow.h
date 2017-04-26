@@ -46,6 +46,7 @@ private:
     Ui::MainWindow *ui;
     Window *window;
     About *about;
+
 };
 
 #endif // MAINWINDOW_H

@@ -25,6 +25,7 @@ Window::Window(QWidget *parent) :
     );
     ui->pushButton->setEnabled(true);
     ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    about=new About();
 }
 
 void Window::on_pushButton_clicked(){
@@ -58,4 +59,12 @@ void Window::on_pushButton_6_clicked()
     this->close();
     emit firstWindow();
 
+}
+
+void Window::on_pushButton_2_clicked()
+{
+    about->setWindowModality(Qt::ApplicationModal);
+    about->show();
+    about->raise();
+    about->setFocus(Qt::ActiveWindowFocusReason);
 }

@@ -22,6 +22,7 @@ private slots:
 
 private:
     Ui::About *ui;
+
 };
 
 #endif // ABOUT_H
