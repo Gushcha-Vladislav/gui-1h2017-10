@@ -18,10 +18,12 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    void hideItemAndShowMenu();
+    void setRecipe();
+    void setMyRecipe();
 private slots:
     void on_pushButton_clicked();
     void showItem();
-    void hideItemAndShowMenu();
     void on_salad_clicked();
 
     void on_pushButton_3_clicked();
@@ -42,10 +44,12 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+
 private:
     Ui::MainWindow *ui;
     Window *window;
     About *about;
+    int recipe;
 
 };
 

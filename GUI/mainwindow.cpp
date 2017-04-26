@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QStyle>
+#include <QDebug>
 #include <QDesktopWidget>
 #include <QPushButton>
 #include <QMessageBox>
@@ -34,7 +35,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->listWidget->hide();
     window= new Window();
     about=new About();
+    setRecipe();
     connect(window, &Window::firstWindow, this, &MainWindow::show);
+    connect(window, &Window::showWindow, this, &MainWindow::hideItemAndShowMenu);
+    connect(window, &Window::showRecipe, this, &MainWindow::setRecipe);
+    connect(window, &Window::showMyRecipe, this, &MainWindow::setMyRecipe);
     connect(about, &About::firstWindow, this, &MainWindow::show);
 }
 
@@ -100,11 +105,13 @@ void MainWindow::on_salad_clicked()
 void MainWindow::on_pushButton_3_clicked()
 {
     this->hideItemAndShowMenu();
+    setRecipe();
 }
 
 void MainWindow::on_pushButton_4_clicked()
 {
     this->hideItemAndShowMenu();
+    setMyRecipe();
 }
 
 void MainWindow::on_soup_clicked()
@@ -134,8 +141,9 @@ void MainWindow::on_drinks_clicked()
 
 void MainWindow::on_listWidget_clicked(const QModelIndex &index)
 {
+
     window->show();
-    this->close();
+    this->hide();
 }
 
 void MainWindow::on_pushButton_2_clicked()
@@ -147,3 +155,15 @@ void MainWindow::on_pushButton_2_clicked()
     about->setFocus(Qt::ActiveWindowFocusReason);
 
 }
+
+void MainWindow::setRecipe(){
+    this->recipe=0;
+    ui->pushButton_6->hide();
+
+}
+
+void MainWindow::setMyRecipe(){
+    this->recipe=1;
+    ui->pushButton_6->show();
+}
+

@@ -28,6 +28,7 @@ Window::Window(QWidget *parent) :
     about=new About();
 }
 
+
 void Window::on_pushButton_clicked(){
     QPropertyAnimation* animation = new QPropertyAnimation(this, "windowOpacity");
 
@@ -49,13 +50,10 @@ Window::~Window()
 }
 
 
-void Window::on_pushButton_3_clicked()
-{
-
-}
 
 void Window::on_pushButton_6_clicked()
 {
+
     this->close();
     emit firstWindow();
 
@@ -67,4 +65,23 @@ void Window::on_pushButton_2_clicked()
     about->show();
     about->raise();
     about->setFocus(Qt::ActiveWindowFocusReason);
+}
+
+
+void Window::buttonClicked(){
+    emit showWindow();
+    emit firstWindow();
+    this->close();
+}
+
+void Window::on_pushButton_3_clicked()
+{
+    emit showRecipe();
+    this->buttonClicked();
+}
+
+void Window::on_pushButton_4_clicked()
+{
+    emit showMyRecipe();
+    this->buttonClicked();
 }

@@ -15,5 +15,6 @@
         <file>pictures/Screenshot_1.png</file>
         <file>pictures/stick.png</file>
         <file>pictures/about.jpg</file>
+        <file>pictures/button.png</file>
     </qresource>
 </RCC>

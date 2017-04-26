@@ -291,6 +291,9 @@
          </rect>
         </property>
         <widget class="QPushButton" name="pushButton_4">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
          <property name="geometry">
           <rect>
            <x>-6</x>
@@ -360,16 +363,6 @@
       </widget>
      </item>
     </layout>
-   </widget>
-   <widget class="QWidget" name="widget_5" native="true">
-    <property name="geometry">
-     <rect>
-      <x>980</x>
-      <y>240</y>
-      <width>381</width>
-      <height>71</height>
-     </rect>
-    </property>
    </widget>
    <widget class="QPushButton" name="salad">
     <property name="geometry">
@@ -798,6 +791,36 @@ border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(25
       <set>AlignCenter</set>
      </property>
     </item>
+   </widget>
+   <widget class="QPushButton" name="pushButton_6">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>520</y>
+      <width>221</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Avdira</family>
+      <pointsize>13</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>OpenHandCursor</cursorShape>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string>QPushButton#pushButton_6 {border-image: url(:/resource/pictures/button.png);}</string>
+    </property>
+    <property name="text">
+     <string>Ввести рецепт</string>
+    </property>
    </widget>
   </widget>
  </widget>

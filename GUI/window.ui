@@ -1053,23 +1053,28 @@ p, li { white-space: pre-wrap; }
    <widget class="QPushButton" name="pushButton_6">
     <property name="geometry">
      <rect>
-      <x>930</x>
-      <y>620</y>
-      <width>161</width>
-      <height>23</height>
+      <x>550</x>
+      <y>530</y>
+      <width>221</width>
+      <height>111</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Avdira</family>
-      <pointsize>11</pointsize>
+      <pointsize>13</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>OpenHandCursor</cursorShape>
     </property>
     <property name="autoFillBackground">
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string>QPushButton#pushButton_6 {background-color: rgb(170, 0, 0);}</string>
+     <string>QPushButton#pushButton_6 {border-image: url(:/resource/pictures/button.png);}</string>
     </property>
     <property name="text">
      <string>Назад</string>
