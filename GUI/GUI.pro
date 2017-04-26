@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -15,11 +15,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     window.cpp \
-    about.cpp
+    about.cpp \
+    recipte.cpp
 
 HEADERS  += mainwindow.h \
     window.h \
-    about.h
+    about.h \
+    recipte.h
 
 FORMS    += mainwindow.ui \
     window.ui \

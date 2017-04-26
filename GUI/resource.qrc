@@ -1,8 +1,6 @@
 <RCC>
     <qresource prefix="/resource">
-        <file>pictures/main_background.jpg</file>
         <file>pictures/main_background.png</file>
-        <file>pictures/background.png</file>
         <file>pictures/close.png</file>
         <file>pictures/question.png</file>
         <file>pictures/sticker.png</file>
