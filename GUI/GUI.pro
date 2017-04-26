@@ -15,15 +15,18 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     window.cpp \
-    about.cpp
+    about.cpp \
+    addrecipe.cpp
 
 HEADERS  += mainwindow.h \
     window.h \
-    about.h
+    about.h \
+    addrecipe.h
 
 FORMS    += mainwindow.ui \
     window.ui \
-    about.ui
+    about.ui \
+    addrecipe.ui
 
 CONFIG += mobility
 MOBILITY = 

@@ -36,11 +36,17 @@ MainWindow::MainWindow(QWidget *parent) :
     window= new Window();
     about=new About();
     setRecipe();
+    addRecipe=new AddRecipe();
     connect(window, &Window::firstWindow, this, &MainWindow::show);
     connect(window, &Window::showWindow, this, &MainWindow::hideItemAndShowMenu);
     connect(window, &Window::showRecipe, this, &MainWindow::setRecipe);
     connect(window, &Window::showMyRecipe, this, &MainWindow::setMyRecipe);
     connect(about, &About::firstWindow, this, &MainWindow::show);
+    connect(addRecipe, &AddRecipe::firstWindow, this, &MainWindow::show);
+    connect(addRecipe, &AddRecipe::showWindow, this, &MainWindow::hideItemAndShowMenu);
+    connect(addRecipe, &AddRecipe::showRecipe, this, &MainWindow::setRecipe);
+    connect(addRecipe, &AddRecipe::showMyRecipe, this, &MainWindow::setMyRecipe);
+
 }
 
 void MainWindow::on_pushButton_clicked(){
@@ -167,3 +173,9 @@ void MainWindow::setMyRecipe(){
     ui->pushButton_6->show();
 }
 
+
+void MainWindow::on_pushButton_6_clicked()
+{
+    addRecipe->show();
+    this->hide();
+}

@@ -1,44 +1,44 @@
-#ifndef WINDOW_H
-#define WINDOW_H
+#ifndef ADDRECIPE_H
+#define ADDRECIPE_H
 
 #include <QMainWindow>
+#include <QDesktopWidget>
+#include <QPropertyAnimation>
 #include "about.h"
 
 namespace Ui {
-class Window;
+class AddRecipe;
 }
 
-class Window : public QMainWindow
+class AddRecipe : public QMainWindow
 {
     Q_OBJECT
+
+public:
+    explicit AddRecipe(QWidget *parent = 0);
+    ~AddRecipe();
+    void buttonClicked();
+
 signals:
     void firstWindow();
     void showWindow();
     void showRecipe();
     void showMyRecipe();
-public:
-    explicit Window(QWidget *parent = 0);
-    ~Window();
-    void buttonClicked();
 
 private slots:
     void on_pushButton_clicked();
 
-
-    void on_pushButton_6_clicked();
-
     void on_pushButton_2_clicked();
-
-
 
     void on_pushButton_3_clicked();
 
     void on_pushButton_4_clicked();
 
-private:
-    Ui::Window *ui;
-    About *about;
+    void on_pushButton_6_clicked();
 
+private:
+    Ui::AddRecipe *ui;
+    About *about;
 };
 
-#endif // WINDOW_H
+#endif // ADDRECIPE_H

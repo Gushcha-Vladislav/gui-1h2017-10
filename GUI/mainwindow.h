@@ -5,6 +5,7 @@
 #include <QListWidget>
 #include "window.h"
 #include "about.h"
+#include "addrecipe.h"
 #include <QPropertyAnimation>
 
 namespace Ui {
@@ -45,11 +46,14 @@ private slots:
     void on_pushButton_2_clicked();
 
 
+    void on_pushButton_6_clicked();
+
 private:
     Ui::MainWindow *ui;
     Window *window;
     About *about;
     int recipe;
+    AddRecipe *addRecipe;
 
 };
 
