@@ -13,6 +13,7 @@
         <file>pictures/Screenshot_1.png</file>
         <file>pictures/stick.png</file>
         <file>pictures/about.jpg</file>
+<<<<<<< HEAD
         <file>D:/recipts.sqlite</file>
         <file>pictures/eats/1_1.jpg</file>
         <file>pictures/eats/1_2.jpg</file>
@@ -26,5 +27,8 @@
         <file>pictures/eats/5_2.jpg</file>
         <file>pictures/eats/6_1.jpg</file>
         <file>pictures/eats/6_2.jpg</file>
+=======
+        <file>pictures/button.png</file>
+>>>>>>> origin/master
     </qresource>
 </RCC>

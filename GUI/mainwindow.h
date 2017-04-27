@@ -5,6 +5,7 @@
 #include <QListWidget>
 #include "window.h"
 #include "about.h"
+#include "addrecipe.h"
 #include <QPropertyAnimation>
 #include <recipte.h>
 #include <QtSql>
@@ -22,10 +23,12 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     void SetRecipts(int,int);
     ~MainWindow();
+    void hideItemAndShowMenu();
+    void setRecipe();
+    void setMyRecipe();
 private slots:
     void on_pushButton_clicked();
     void showItem();
-    void hideItemAndShowMenu();
     void on_salad_clicked();
 
     void on_pushButton_3_clicked();
@@ -46,12 +49,20 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+
+    void on_pushButton_6_clicked();
+
 private:
     Ui::MainWindow *ui;
     Window *window;
     About *about;
+<<<<<<< HEAD
     QVector<Recipte>recipts;
     QSqlDatabase m_db;
+=======
+    int recipe;
+    AddRecipe *addRecipe;
+>>>>>>> origin/master
 
 };
 

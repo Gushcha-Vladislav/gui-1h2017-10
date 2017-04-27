@@ -16,16 +16,25 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     window.cpp \
     about.cpp \
+<<<<<<< HEAD
     recipte.cpp
+=======
+    addrecipe.cpp
+>>>>>>> origin/master
 
 HEADERS  += mainwindow.h \
     window.h \
     about.h \
+<<<<<<< HEAD
     recipte.h
+=======
+    addrecipe.h
+>>>>>>> origin/master
 
 FORMS    += mainwindow.ui \
     window.ui \
-    about.ui
+    about.ui \
+    addrecipe.ui
 
 CONFIG += mobility
 MOBILITY = 
