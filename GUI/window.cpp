@@ -67,7 +67,6 @@ void Window::on_pushButton_2_clicked()
     about->raise();
     about->setFocus(Qt::ActiveWindowFocusReason);
 }
-<<<<<<< HEAD
 void Window::GetRecipte(Recipte Temp){
     temp=Temp;
     ui->textBrowser->clear();
@@ -79,9 +78,7 @@ void Window::GetRecipte(Recipte Temp){
         ui->tableWidget->setItem(i,0,new QTableWidgetItem(temp.SetProduct().at(i)));
         ui->tableWidget->setItem(i,1,new QTableWidgetItem(temp.SetMassa().at(i)));
     }
-
-=======
-
+}
 
 void Window::buttonClicked(){
     emit showWindow();
@@ -99,5 +96,4 @@ void Window::on_pushButton_4_clicked()
 {
     emit showMyRecipe();
     this->buttonClicked();
->>>>>>> origin/master
 }

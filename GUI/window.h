@@ -40,11 +40,7 @@ private slots:
 private:
     Ui::Window *ui;
     About *about;
-<<<<<<< HEAD
     Recipte temp;
-=======
-
->>>>>>> origin/master
 };
 
 #endif // WINDOW_H

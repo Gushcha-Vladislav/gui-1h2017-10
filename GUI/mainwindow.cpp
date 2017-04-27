@@ -42,16 +42,12 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(window, &Window::showRecipe, this, &MainWindow::setRecipe);
     connect(window, &Window::showMyRecipe, this, &MainWindow::setMyRecipe);
     connect(about, &About::firstWindow, this, &MainWindow::show);
-<<<<<<< HEAD
     m_db=QSqlDatabase::addDatabase("QSQLITE");
     m_db.setDatabaseName("D:/recipts.sqlite");
-=======
     connect(addRecipe, &AddRecipe::firstWindow, this, &MainWindow::show);
     connect(addRecipe, &AddRecipe::showWindow, this, &MainWindow::hideItemAndShowMenu);
     connect(addRecipe, &AddRecipe::showRecipe, this, &MainWindow::setRecipe);
     connect(addRecipe, &AddRecipe::showMyRecipe, this, &MainWindow::setMyRecipe);
->>>>>>> origin/master
-
 }
 
 void MainWindow::on_pushButton_clicked(){
@@ -109,7 +105,9 @@ void MainWindow::hideItemAndShowMenu(){
 
 void MainWindow::on_salad_clicked()
 {
+    if(!recipe){
     SetRecipts(5,0);
+    }
     this->showItem();
 
 }
@@ -128,41 +126,47 @@ void MainWindow::on_pushButton_4_clicked()
 
 void MainWindow::on_soup_clicked()
 {
+    if(!recipe){
     SetRecipts(6,0);
+    }
     this->showItem();
 }
 
 void MainWindow::on_g_clicked()
 {
+    if(!recipe){
     SetRecipts(1,0);
+    }
     this->showItem();
 }
 
 void MainWindow::on_osn_clicked()
 {
+    if(!recipe){
     SetRecipts(4,0);
+    }
     this->showItem();
 }
 
 void MainWindow::on_desert_clicked()
 {
+    if(!recipe){
     SetRecipts(2,0);
+    }
     this->showItem();
 }
 
 void MainWindow::on_drinks_clicked()
 {
-    SetRecipts(3,0);
+    if(!recipe){
+    SetRecipts(3,0); 
+    }
     this->showItem();
 }
 
 void MainWindow::on_listWidget_clicked(const QModelIndex &index)
 {
-<<<<<<< HEAD
     window->GetRecipte(recipts.at(index.row()));
-=======
-
->>>>>>> origin/master
     window->show();
     this->hide();
 }
@@ -176,7 +180,7 @@ void MainWindow::on_pushButton_2_clicked()
     about->setFocus(Qt::ActiveWindowFocusReason);
 
 }
-<<<<<<< HEAD
+
 void MainWindow::SetRecipts(int Type_Recipte,int Type_In){
     ui->listWidget->clear();
     recipts.clear();
@@ -236,8 +240,8 @@ void MainWindow::SetRecipts(int Type_Recipte,int Type_In){
         ui->listWidget->addItem(recipts.at(i).SetName());
         ui->listWidget->item(i)->setTextAlignment(Qt::AlignHCenter);
     }
-=======
 
+}
 void MainWindow::setRecipe(){
     this->recipe=0;
     ui->pushButton_6->hide();
@@ -254,5 +258,4 @@ void MainWindow::on_pushButton_6_clicked()
 {
     addRecipe->show();
     this->hide();
->>>>>>> origin/master
 }

@@ -16,20 +16,16 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     window.cpp \
     about.cpp \
-<<<<<<< HEAD
-    recipte.cpp
-=======
+    recipte.cpp \
     addrecipe.cpp
->>>>>>> origin/master
+    addrecipe.cpp
 
 HEADERS  += mainwindow.h \
     window.h \
     about.h \
-<<<<<<< HEAD
-    recipte.h
-=======
+    recipte.h \
     addrecipe.h
->>>>>>> origin/master
+    addrecipe.h
 
 FORMS    += mainwindow.ui \
     window.ui \

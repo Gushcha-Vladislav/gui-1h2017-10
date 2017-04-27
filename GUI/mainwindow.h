@@ -56,14 +56,10 @@ private:
     Ui::MainWindow *ui;
     Window *window;
     About *about;
-<<<<<<< HEAD
     QVector<Recipte>recipts;
     QSqlDatabase m_db;
-=======
     int recipe;
     AddRecipe *addRecipe;
->>>>>>> origin/master
-
 };
 
 #endif // MAINWINDOW_H
