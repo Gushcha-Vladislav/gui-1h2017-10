@@ -24,6 +24,7 @@ Window::Window(QWidget *parent) :
         )
     );
     ui->pushButton->setEnabled(true);
+    ui->tableWidget->setColumnCount(2);
     ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
     about=new About();
 }
@@ -67,4 +68,17 @@ void Window::on_pushButton_2_clicked()
     about->show();
     about->raise();
     about->setFocus(Qt::ActiveWindowFocusReason);
+}
+void Window::GetRecipte(Recipte Temp){
+    temp=Temp;
+    ui->textBrowser->clear();
+    ui->textBrowser->append(temp.SetDescription());
+    ui->widget_5->setStyleSheet("border-image: url("+Temp.SetImage()+");");
+    ui->label->setText(Temp.SetName());
+    ui->tableWidget->setRowCount(temp.SetProduct().size());
+    for(int i=0;i<temp.SetProduct().size();i++){
+        ui->tableWidget->setItem(i,0,new QTableWidgetItem(temp.SetProduct().at(i)));
+        ui->tableWidget->setItem(i,1,new QTableWidgetItem(temp.SetMassa().at(i)));
+    }
+
 }

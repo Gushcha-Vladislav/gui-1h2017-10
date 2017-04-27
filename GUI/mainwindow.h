@@ -6,7 +6,10 @@
 #include "window.h"
 #include "about.h"
 #include <QPropertyAnimation>
-
+#include <recipte.h>
+#include <QtSql>
+#include <string>
+using namespace std;
 namespace Ui {
 class MainWindow;
 }
@@ -17,6 +20,7 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
+    void SetRecipts(int,int);
     ~MainWindow();
 private slots:
     void on_pushButton_clicked();
@@ -46,6 +50,8 @@ private:
     Ui::MainWindow *ui;
     Window *window;
     About *about;
+    QVector<Recipte>recipts;
+    QSqlDatabase m_db;
 
 };
 

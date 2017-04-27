@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "about.h"
+#include <recipte.h>
 
 namespace Ui {
 class Window;
@@ -15,6 +16,7 @@ signals:
     void firstWindow();
 public:
     explicit Window(QWidget *parent = 0);
+    void GetRecipte(Recipte);
     ~Window();
 private slots:
     void on_pushButton_clicked();
@@ -28,6 +30,7 @@ private slots:
 private:
     Ui::Window *ui;
     About *about;
+    Recipte temp;
 };
 
 #endif // WINDOW_H

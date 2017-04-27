@@ -776,6 +776,17 @@
       <height>511</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Bookman Old Style</family>
+      <pointsize>18</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::ActionsContextMenu</enum>
+    </property>
     <property name="autoFillBackground">
      <bool>false</bool>
     </property>
@@ -783,21 +794,15 @@
      <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 255, 255, 162), stop:1 rgba(255, 255, 255, 176));
 border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 255, 255, 162), stop:1 rgba(255, 255, 255, 176));</string>
     </property>
-    <item>
-     <property name="text">
-      <string> Шоколадный десерт</string>
-     </property>
-     <property name="font">
-      <font>
-       <family>Avdira</family>
-       <pointsize>16</pointsize>
-       <italic>false</italic>
-      </font>
-     </property>
-     <property name="textAlignment">
-      <set>AlignCenter</set>
-     </property>
-    </item>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="sizeAdjustPolicy">
+     <enum>QAbstractScrollArea::AdjustIgnored</enum>
+    </property>
+    <property name="verticalScrollMode">
+     <enum>QAbstractItemView::ScrollPerItem</enum>
+    </property>
    </widget>
   </widget>
  </widget>
