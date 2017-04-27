@@ -12,11 +12,11 @@ void Recipte::GetId(int Id){
     id=Id;
 }
 
-std::string Recipte::SetName(){
+QString Recipte::SetName()const{
     return name;
 }
 
-void Recipte::GetName(std::string Name){
+void Recipte::GetName(QString Name){
     name=Name;
 }
 
@@ -36,18 +36,33 @@ void Recipte::GetTypeIn(int Type_In){
     type_in=Type_In;
 }
 
-std::string Recipte::SetDescription(){
+QString Recipte::SetDescription(){
     return description;
 }
 
-void Recipte::GetDescription(std::string Description){
+void Recipte::GetDescription(QString Description){
     description=Description;
 }
 
-std::vector<std::string> Recipte::SetProduct(){
+QVector<QString> Recipte::SetProduct(){
     return product;
 }
 
-void Recipte::GetProduct(std::vector<std::string> Product){
+void Recipte::GetProduct(QVector<QString> Product){
     product=Product;
 }
+QString  Recipte::SetImage(){
+    return image;
+}
+
+void  Recipte::GetImage(QString Image){
+    image=Image;
+}
+QVector<QString> Recipte::SetMassa(){
+    return massa;
+}
+
+void Recipte::GetMassa(QVector<QString> Massa){
+    massa=Massa;
+}
+

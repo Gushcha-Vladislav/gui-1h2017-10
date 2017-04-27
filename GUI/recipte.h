@@ -1,31 +1,37 @@
 #ifndef RECIPTE_H
 #define RECIPTE_H
-#include <string>
-#include <vector>
+#include <QString>
+#include <QVector>
 
 class Recipte
 {
 private:
     int id;
-    std::string name;
+    QString name;
     int type_recipte;
     int type_in;
-    std::string description;
-    std::vector<std::string> product;
+    QString description;
+    QVector<QString> product;
+    QVector<QString> massa;
+    QString image;
 public:
     Recipte();
     int SetId();
     void GetId(int);
-    std::string SetName();
-    void GetName(std::string);
+    QString SetName()const;
+    void GetName(QString);
     int SetTypeRecipte ();
     void GetTypeRecipte(int);
     int SetTypeIn();
     void GetTypeIn(int);
-    std::string SetDescription();
-    void GetDescription(std::string);
-    std::vector<std::string> SetProduct();
-    void GetProduct(std::vector<std::string>);
+    QString SetDescription();
+    void GetDescription(QString);
+    QVector<QString> SetProduct();
+    void GetProduct(QVector<QString>);
+    QVector<QString> SetMassa();
+    void GetMassa(QVector<QString>);
+    QString SetImage();
+    void GetImage(QString);
 };
 
 #endif // RECIPTE_H
