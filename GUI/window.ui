@@ -955,7 +955,7 @@ p, li { white-space: pre-wrap; }
    <widget class="QPushButton" name="pushButton_6">
     <property name="geometry">
      <rect>
-      <x>550</x>
+      <x>560</x>
       <y>530</y>
       <width>221</width>
       <height>111</height>
@@ -980,6 +980,31 @@ p, li { white-space: pre-wrap; }
     </property>
     <property name="text">
      <string>Назад</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="starButton">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>470</y>
+      <width>81</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>QPushButton#starButton {border-image: url(:/resource/pictures/star.png);}</string>
+    </property>
+    <property name="cursor">
+     <cursorShape>OpenHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="shortcut">
+     <string/>
     </property>
    </widget>
   </widget>

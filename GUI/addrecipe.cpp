@@ -17,6 +17,13 @@ AddRecipe::AddRecipe(QWidget *parent) :
         )
     );
     about=new About();
+    ui->comboBox->addItem("Салаты");
+    ui->comboBox->addItem("Супы");
+    ui->comboBox->addItem("Гарниры");
+    ui->comboBox->addItem("Основные блюда");
+    ui->comboBox->addItem("Десерты");
+    ui->comboBox->addItem("Напитки");
+
 }
 
 AddRecipe::~AddRecipe()

@@ -37,6 +37,8 @@ private slots:
 
     void on_pushButton_4_clicked();
 
+    void on_starButton_clicked();
+
 private:
     Ui::Window *ui;
     About *about;

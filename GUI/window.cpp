@@ -14,6 +14,7 @@ Window::Window(QWidget *parent) :
     ui->setupUi(this);
 
     QWidget::setWindowFlags(Qt::FramelessWindowHint);
+    ui->starButton->setToolTip("Добавить в избранное");
 
     Window::setGeometry(
         QStyle::alignedRect(
@@ -96,4 +97,9 @@ void Window::on_pushButton_4_clicked()
 {
     emit showMyRecipe();
     this->buttonClicked();
+}
+
+void Window::on_starButton_clicked()
+{
+
 }
