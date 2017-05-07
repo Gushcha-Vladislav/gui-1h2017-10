@@ -17,20 +17,23 @@ SOURCES += main.cpp\
     window.cpp \
     about.cpp \
     recipte.cpp \
-    addrecipe.cpp
+    addrecipe.cpp \
+    mainform.cpp
     addrecipe.cpp
 
 HEADERS  += mainwindow.h \
     window.h \
     about.h \
     recipte.h \
-    addrecipe.h
+    addrecipe.h \
+    mainform.h
     addrecipe.h
 
 FORMS    += mainwindow.ui \
     window.ui \
     about.ui \
-    addrecipe.ui
+    addrecipe.ui \
+    mainform.ui
 
 CONFIG += mobility
 MOBILITY = 
@@ -38,5 +41,5 @@ MOBILITY =
 RESOURCES += \
     resource.qrc
 
-DISTFILES +=
+
 

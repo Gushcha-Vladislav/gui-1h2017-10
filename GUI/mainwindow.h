@@ -26,6 +26,7 @@ public:
     void hideItemAndShowMenu();
     void setRecipe();
     void setMyRecipe();
+
 private slots:
     void on_pushButton_clicked();
     void showItem();
@@ -56,6 +57,7 @@ private:
     Ui::MainWindow *ui;
     Window *window;
     About *about;
+    QWidget *parentWidget;
     QVector<Recipte>recipts;
     QSqlDatabase m_db;
     int recipe;

@@ -33,17 +33,7 @@ AddRecipe::~AddRecipe()
 
 void AddRecipe::on_pushButton_clicked()
 {
-    QPropertyAnimation* animation = new QPropertyAnimation(this, "windowOpacity");
-
-    animation->setDuration(2000);
-
-    animation->setStartValue(1);
-
-    animation->setEndValue(0);
-
-    animation->start();
-
-    connect(animation, SIGNAL(finished()), this, SLOT(close()));
+    connect(ui->pushButton, SIGNAL(clicked()), this->parent(), SLOT(closeApp()));
 }
 
 void AddRecipe::on_pushButton_2_clicked()

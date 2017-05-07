@@ -4,6 +4,7 @@
 #include <QStyle>
 #include <QDesktopWidget>
 #include <QPushButton>
+#include <QDebug>
 #include <QPropertyAnimation>
 
 
@@ -28,21 +29,14 @@ Window::Window(QWidget *parent) :
     ui->tableWidget->setColumnCount(2);
     ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
     about=new About();
+
 }
 
 
+
+
 void Window::on_pushButton_clicked(){
-    QPropertyAnimation* animation = new QPropertyAnimation(this, "windowOpacity");
-
-    animation->setDuration(2000);
-
-    animation->setStartValue(1);
-
-    animation->setEndValue(0);
-
-    animation->start();
-
-    connect(animation, SIGNAL(finished()), this, SLOT(close()));
+    connect(ui->pushButton, SIGNAL(clicked()), this->parent(), SLOT(closeApp()));
 }
 
 
@@ -55,10 +49,8 @@ Window::~Window()
 
 void Window::on_pushButton_6_clicked()
 {
-
     this->close();
     emit firstWindow();
-
 }
 
 void Window::on_pushButton_2_clicked()
@@ -98,6 +90,25 @@ void Window::on_pushButton_4_clicked()
     emit showMyRecipe();
     this->buttonClicked();
 }
+
+void Window::setRecipe(int r)
+{
+    this->recipe=r;
+    if(recipe==0){
+        ui->pushButton_3->setStyleSheet(QString::fromUtf8("background-color: rgb(140, 0, 0);"));
+        ui->pushButton_4->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 170, 0);"));
+    }
+    if(recipe==1){
+        ui->pushButton_4->setStyleSheet(QString::fromUtf8("background-color: rgb(140, 0, 0);"));
+        ui->pushButton_3->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 170, 0);"));
+    }
+}
+
+int Window::getRecipe()
+{
+    return this->recipe;
+}
+
 
 void Window::on_starButton_clicked()
 {

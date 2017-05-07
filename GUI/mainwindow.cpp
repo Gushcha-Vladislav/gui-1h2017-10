@@ -12,15 +12,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QPropertyAnimation* animation = new QPropertyAnimation(this, "windowOpacity");
-
-    animation->setDuration(2000);
-
-    animation->setStartValue(0);
-
-    animation->setEndValue(1);
-
-    animation->start();
     QWidget::setWindowFlags(Qt::FramelessWindowHint);
 
     MainWindow::setGeometry(
@@ -31,12 +22,18 @@ MainWindow::MainWindow(QWidget *parent) :
             qApp->desktop()->availableGeometry()
         )
     );
+    recipe=0;
     ui->pushButton->setEnabled(true);
     ui->listWidget->hide();
-    window= new Window();
-    about=new About();
+    window=new Window(parent);
+    about=new About(parent);
     setRecipe();
-    addRecipe=new AddRecipe();
+    addRecipe=new AddRecipe(parent);
+    window->hide();
+    about->hide();
+    addRecipe->hide();
+    window->setGeometry(0,0,1149,667);
+    addRecipe->setGeometry(0,0,1149,667);
     connect(window, &Window::firstWindow, this, &MainWindow::show);
     connect(window, &Window::showWindow, this, &MainWindow::hideItemAndShowMenu);
     connect(window, &Window::showRecipe, this, &MainWindow::setRecipe);
@@ -51,17 +48,9 @@ MainWindow::MainWindow(QWidget *parent) :
 }
 
 void MainWindow::on_pushButton_clicked(){
-    QPropertyAnimation* animation = new QPropertyAnimation(this, "windowOpacity");
 
-    animation->setDuration(2000);
+    connect(ui->pushButton, SIGNAL(clicked()), this->parent(), SLOT(closeApp()));
 
-    animation->setStartValue(1);
-
-    animation->setEndValue(0);
-
-    animation->start();
-
-    connect(animation, SIGNAL(finished()), this, SLOT(close()));
 }
 
 MainWindow::~MainWindow()
@@ -166,7 +155,9 @@ void MainWindow::on_drinks_clicked()
 
 void MainWindow::on_listWidget_clicked(const QModelIndex &index)
 {
+
     window->GetRecipte(recipts.at(index.row()));
+    window->setRecipe(recipe);
     window->show();
     this->hide();
 }
@@ -245,12 +236,16 @@ void MainWindow::SetRecipts(int Type_Recipte,int Type_In){
 void MainWindow::setRecipe(){
     this->recipe=0;
     ui->pushButton_6->hide();
+    ui->pushButton_3->setStyleSheet(QString::fromUtf8("background-color: rgb(140, 0, 0);"));
+    ui->pushButton_4->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 170, 0);"));
 
 }
 
 void MainWindow::setMyRecipe(){
     this->recipe=1;
     ui->pushButton_6->show();
+    ui->pushButton_4->setStyleSheet(QString::fromUtf8("background-color: rgb(140, 0, 0);"));
+    ui->pushButton_3->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 170, 0);"));
 }
 
 

@@ -17,21 +17,21 @@ signals:
     void showWindow();
     void showRecipe();
     void showMyRecipe();
+
 public:
     explicit Window(QWidget *parent = 0);
     void GetRecipte(Recipte);
     ~Window();
     void buttonClicked();
+    void setRecipe(int r);
+    int getRecipe();
 
 private slots:
     void on_pushButton_clicked();
 
-
     void on_pushButton_6_clicked();
 
     void on_pushButton_2_clicked();
-
-
 
     void on_pushButton_3_clicked();
 
@@ -43,6 +43,7 @@ private:
     Ui::Window *ui;
     About *about;
     Recipte temp;
+    int recipe;
 };
 
 #endif // WINDOW_H
