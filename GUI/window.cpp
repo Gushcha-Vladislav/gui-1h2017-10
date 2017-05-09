@@ -29,6 +29,7 @@ Window::Window(QWidget *parent) :
     ui->tableWidget->setColumnCount(2);
     ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
     about=new About();
+    ui->label->setStyleSheet("qproperty-alignment: AlignCenter;");
 
 }
 

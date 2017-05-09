@@ -348,7 +348,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>310</y>
+      <y>280</y>
       <width>221</width>
       <height>16</height>
      </rect>
@@ -403,7 +403,7 @@
     <property name="geometry">
      <rect>
       <x>210</x>
-      <y>310</y>
+      <y>280</y>
       <width>351</width>
       <height>31</height>
      </rect>
@@ -413,7 +413,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>390</y>
+      <y>360</y>
       <width>221</width>
       <height>16</height>
      </rect>
@@ -497,10 +497,10 @@
    <widget class="QGraphicsView" name="graphicsView">
     <property name="geometry">
      <rect>
-      <x>290</x>
+      <x>300</x>
       <y>130</y>
-      <width>181</width>
-      <height>141</height>
+      <width>161</width>
+      <height>131</height>
      </rect>
     </property>
     <property name="autoFillBackground">
@@ -544,7 +544,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>350</y>
+      <y>320</y>
       <width>221</width>
       <height>16</height>
      </rect>
@@ -569,7 +569,7 @@
     <property name="geometry">
      <rect>
       <x>210</x>
-      <y>350</y>
+      <y>320</y>
       <width>351</width>
       <height>31</height>
      </rect>
@@ -581,16 +581,94 @@
      </font>
     </property>
    </widget>
-   <widget class="QWidget" name="gridLayoutWidget">
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>210</x>
-      <y>390</y>
+      <y>360</y>
       <width>351</width>
-      <height>91</height>
+      <height>121</height>
      </rect>
     </property>
-    <layout class="QGridLayout" name="gridLayout"/>
+    <row>
+     <property name="text">
+      <string>1</string>
+     </property>
+    </row>
+    <column>
+     <property name="text">
+      <string>Продукт</string>
+     </property>
+     <property name="font">
+      <font>
+       <family>Avdira</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Количество</string>
+     </property>
+     <property name="font">
+      <font>
+       <family>Avdira</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+    </column>
+    <item row="0" column="0">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+    </item>
+    <item row="0" column="1">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+    </item>
+   </widget>
+   <widget class="QPushButton" name="pushButton_8">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>410</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/resource/pictures/add.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_9">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>180</y>
+      <width>81</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Открыть...</string>
+    </property>
    </widget>
   </widget>
  </widget>

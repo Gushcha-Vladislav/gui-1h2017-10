@@ -33,6 +33,7 @@ MainWindow::MainWindow(QWidget *parent) :
     about->hide();
     addRecipe->hide();
     window->setGeometry(0,0,1149,667);
+    about->setGeometry(351,187,447,293);
     addRecipe->setGeometry(0,0,1149,667);
     connect(window, &Window::firstWindow, this, &MainWindow::show);
     connect(window, &Window::showWindow, this, &MainWindow::hideItemAndShowMenu);

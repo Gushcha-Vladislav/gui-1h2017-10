@@ -1,5 +1,8 @@
 #include "addrecipe.h"
 #include "ui_addrecipe.h"
+#include "QtGui"
+#include "QFileDialog"
+
 
 AddRecipe::AddRecipe(QWidget *parent) :
     QMainWindow(parent),
@@ -23,6 +26,7 @@ AddRecipe::AddRecipe(QWidget *parent) :
     ui->comboBox->addItem("Основные блюда");
     ui->comboBox->addItem("Десерты");
     ui->comboBox->addItem("Напитки");
+    ui->pushButton_4->setStyleSheet(QString::fromUtf8("background-color: rgb(140, 0, 0);"));
 
 }
 
@@ -66,4 +70,21 @@ void AddRecipe::on_pushButton_6_clicked()
 {
     emit firstWindow();
     this->close();
+}
+
+void AddRecipe::on_pushButton_8_clicked()
+{
+    ui->tableWidget->insertRow(1);
+}
+
+void AddRecipe::on_pushButton_9_clicked()
+{
+    QString fileName = QFileDialog::getOpenFileName(this,
+                                QString::fromUtf8("Открыть файл"),
+                                QDir::currentPath(),
+                                "Images (*.png *.xpm *.jpg);;All files (*.*)");
+
+    QGraphicsScene *scene=new QGraphicsScene();
+    scene->addPixmap(QPixmap(fileName));
+    ui->graphicsView->setScene(scene);
 }
