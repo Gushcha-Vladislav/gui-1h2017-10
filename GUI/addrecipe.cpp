@@ -2,6 +2,7 @@
 #include "ui_addrecipe.h"
 #include "QtGui"
 #include "QFileDialog"
+#include "QGraphicsPixmapItem"
 
 
 AddRecipe::AddRecipe(QWidget *parent) :
@@ -85,6 +86,12 @@ void AddRecipe::on_pushButton_9_clicked()
                                 "Images (*.png *.xpm *.jpg);;All files (*.*)");
 
     QGraphicsScene *scene=new QGraphicsScene();
-    scene->addPixmap(QPixmap(fileName));
     ui->graphicsView->setScene(scene);
+    QGraphicsPixmapItem *pixItem= new QGraphicsPixmapItem();
+    scene->addItem(pixItem);
+    QPixmap pixmap(fileName);
+    pixItem->setVisible(true);
+    pixItem->setPixmap(pixmap);
+    ui->graphicsView->fitInView(0,0,pixmap.width(),pixmap.height());
+
 }
