@@ -30,6 +30,7 @@ Window::Window(QWidget *parent) :
     ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
     about=new About();
     ui->label->setStyleSheet("qproperty-alignment: AlignCenter;");
+    ui->tableWidget->setSelectionMode(QAbstractItemView::NoSelection);
 
 }
 

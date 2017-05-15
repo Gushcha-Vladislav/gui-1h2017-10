@@ -6,6 +6,8 @@
 #include <QPropertyAnimation>
 #include "about.h"
 #include "QTableWidget"
+#include "QGraphicsPixmapItem"
+
 
 namespace Ui {
 class AddRecipe;
@@ -19,6 +21,7 @@ public:
     explicit AddRecipe(QWidget *parent = 0);
     ~AddRecipe();
     void buttonClicked();
+    void clearAll();
 
 signals:
     void firstWindow();
@@ -41,9 +44,14 @@ private slots:
 
     void on_pushButton_9_clicked();
 
+    void on_pushButton_7_clicked();
+
 private:
     Ui::AddRecipe *ui;
     About *about;
+    QGraphicsScene *scene;
+    QGraphicsPixmapItem *pixItem;
+
 };
 
 #endif // ADDRECIPE_H
