@@ -2,7 +2,8 @@
 #include "ui_addrecipe.h"
 #include "QtGui"
 #include "QFileDialog"
-#include "QGraphicsPixmapItem"
+#include "QMessageBox"
+
 
 
 AddRecipe::AddRecipe(QWidget *parent): QMainWindow(parent), ui(new Ui::AddRecipe){
@@ -21,6 +22,13 @@ AddRecipe::AddRecipe(QWidget *parent): QMainWindow(parent), ui(new Ui::AddRecipe
 
     about=new About();
     ui->pushButton_4->setStyleSheet(QString::fromUtf8("background-color: rgb(140, 0, 0);"));
+<<<<<<< HEAD
+=======
+    scene=new QGraphicsScene();
+    ui->graphicsView->setScene(scene);
+    pixItem= new QGraphicsPixmapItem();
+
+>>>>>>> origin/master
 }
 
 AddRecipe::~AddRecipe(){
@@ -66,12 +74,19 @@ void AddRecipe::on_pushButton_5_clicked(){
     this->buttonClicked();
 }
 
+<<<<<<< HEAD
 void AddRecipe::on_pushButton_6_clicked(){
 
+=======
+void AddRecipe::on_pushButton_6_clicked()
+{
+    clearAll();
+>>>>>>> origin/master
     emit firstWindow();
     this->close();
 }
 
+<<<<<<< HEAD
 void AddRecipe::on_pushButton_7_clicked(){
 
     QSqlQuery query;
@@ -119,13 +134,22 @@ void AddRecipe::on_pushButton_8_clicked(){
 void AddRecipe::on_pushButton_9_clicked(){
 
     fileName= QFileDialog::getOpenFileName(this,
+=======
+void AddRecipe::on_pushButton_8_clicked()
+{
+    ui->tableWidget->insertRow(ui->tableWidget->rowCount());
+}
+
+void AddRecipe::on_pushButton_9_clicked()
+{
+
+    QString fileName = QFileDialog::getOpenFileName(this,
+>>>>>>> origin/master
                                 QString::fromUtf8("Открыть файл"),
                                 QDir::currentPath(),
                                 "Images (*.png *.xpm *.jpg);;All files (*.*)");
 
-    QGraphicsScene *scene=new QGraphicsScene();
-    ui->graphicsView->setScene(scene);
-    QGraphicsPixmapItem *pixItem= new QGraphicsPixmapItem();
+
     scene->addItem(pixItem);
     QPixmap pixmap(fileName);
     pixItem->setVisible(true);
@@ -138,4 +162,22 @@ void AddRecipe::downlandSqllite(QSqlDatabase M_db){
     m_db=M_db;
 }
 
+<<<<<<< HEAD
 
+=======
+void AddRecipe::clearAll(){
+    ui->tableWidget->clearContents();
+    ui->tableWidget->setColumnCount(2);
+    ui->tableWidget->setRowCount(1);
+    ui->graphicsView->scene()->removeItem(pixItem);
+    ui->plainTextEdit_2->clear();
+    ui->textEdit->clear();
+
+}
+
+void AddRecipe::on_pushButton_7_clicked()
+{
+
+    clearAll();
+}
+>>>>>>> origin/master

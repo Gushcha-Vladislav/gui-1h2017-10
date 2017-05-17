@@ -636,10 +636,10 @@ p, li { white-space: pre-wrap; }
    <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
      <rect>
-      <x>370</x>
+      <x>360</x>
       <y>160</y>
-      <width>211</width>
-      <height>191</height>
+      <width>221</width>
+      <height>181</height>
      </rect>
     </property>
     <property name="palette">
@@ -932,7 +932,7 @@ p, li { white-space: pre-wrap; }
       <x>50</x>
       <y>140</y>
       <width>291</width>
-      <height>211</height>
+      <height>201</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -994,11 +994,11 @@ p, li { white-space: pre-wrap; }
       <height>61</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string>QPushButton#starButton {border-image: url(:/resource/pictures/star.png);}</string>
-    </property>
     <property name="cursor">
      <cursorShape>OpenHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string>QPushButton#starButton {border-image: url(:/resource/pictures/star.png);}</string>
     </property>
     <property name="styleSheet">
      <string notr="true"/>
