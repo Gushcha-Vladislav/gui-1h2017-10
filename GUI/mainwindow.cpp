@@ -98,6 +98,7 @@ void MainWindow::hideItemAndShowMenu(){
 }
 
 void MainWindow::download(int Type){
+
     QString Condition;
     QString t;
     t.setNum(Type);

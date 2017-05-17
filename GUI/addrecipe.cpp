@@ -22,13 +22,9 @@ AddRecipe::AddRecipe(QWidget *parent): QMainWindow(parent), ui(new Ui::AddRecipe
 
     about=new About();
     ui->pushButton_4->setStyleSheet(QString::fromUtf8("background-color: rgb(140, 0, 0);"));
-<<<<<<< HEAD
-=======
     scene=new QGraphicsScene();
     ui->graphicsView->setScene(scene);
     pixItem= new QGraphicsPixmapItem();
-
->>>>>>> origin/master
 }
 
 AddRecipe::~AddRecipe(){
@@ -74,19 +70,13 @@ void AddRecipe::on_pushButton_5_clicked(){
     this->buttonClicked();
 }
 
-<<<<<<< HEAD
-void AddRecipe::on_pushButton_6_clicked(){
-
-=======
 void AddRecipe::on_pushButton_6_clicked()
 {
     clearAll();
->>>>>>> origin/master
     emit firstWindow();
     this->close();
 }
 
-<<<<<<< HEAD
 void AddRecipe::on_pushButton_7_clicked(){
 
     QSqlQuery query;
@@ -94,16 +84,16 @@ void AddRecipe::on_pushButton_7_clicked(){
     t1.setNum(ui->comboBox->currentIndex()+1);
     m_db.open();
     QString s="INSERT INTO recipte ( name, type_recipte, type_in, description, image, favorite ) SELECT \""+ui->textEdit->toPlainText()+"\", "+t1+", 1, \""+ui->plainTextEdit_2->toPlainText()+"\", \""+fileName+"\", 0";
-    bool task=query.exec(s);
+    query.exec(s);
     s="SELECT id_recipte FROM recipte WHERE (name=\""+ui->textEdit->toPlainText()+"\");";
-    task=query.exec(s);
+    query.exec(s);
     query.next();
     QString id;
     id.setNum(query.value(0).toInt());
     for(int i=0;i<ui->tableWidget->rowCount();i++){
         QString b=ui->tableWidget->item(i,0)->text();
         s="SELECT id_product FROM product WHERE (name=\""+b+"\");";
-        task=query.exec(s);
+        query.exec(s);
         QString id_product;
         if(query.next()){
             id_product.setNum(query.value(0).toInt());
@@ -111,45 +101,31 @@ void AddRecipe::on_pushButton_7_clicked(){
         }else{
 
             s="INSERT INTO product ( name ) SELECT \""+b+"\"";
-            task=query.exec(s);
+            query.exec(s);
             s="SELECT id_product FROM product WHERE (name=\""+b+"\");";
-            task=query.exec(s);
+            query.exec(s);
             query.next();
             id_product.setNum(query.value(0).toInt());
         }
         s="INSERT INTO recipte_profuct ( id_recipte, id_product, mass ) SELECT "+id+","+id_product+",\""+ui->tableWidget->item(i,1)->text()+"\"";
-        task=query.exec(s);
+        query.exec(s);
     }
     m_db.close();
-    ui->tableWidget->clear();
-    ui->textEdit->clear();
-    ui->plainTextEdit_2->clear();
-    ui->graphicsView->clearMask();
+    clearAll();
 }
+
 void AddRecipe::on_pushButton_8_clicked(){
 
-    ui->tableWidget->insertRow(1);
-}
-
-void AddRecipe::on_pushButton_9_clicked(){
-
-    fileName= QFileDialog::getOpenFileName(this,
-=======
-void AddRecipe::on_pushButton_8_clicked()
-{
     ui->tableWidget->insertRow(ui->tableWidget->rowCount());
 }
 
 void AddRecipe::on_pushButton_9_clicked()
 {
 
-    QString fileName = QFileDialog::getOpenFileName(this,
->>>>>>> origin/master
+    fileName = QFileDialog::getOpenFileName(this,
                                 QString::fromUtf8("Открыть файл"),
                                 QDir::currentPath(),
                                 "Images (*.png *.xpm *.jpg);;All files (*.*)");
-
-
     scene->addItem(pixItem);
     QPixmap pixmap(fileName);
     pixItem->setVisible(true);
@@ -162,10 +138,8 @@ void AddRecipe::downlandSqllite(QSqlDatabase M_db){
     m_db=M_db;
 }
 
-<<<<<<< HEAD
-
-=======
 void AddRecipe::clearAll(){
+
     ui->tableWidget->clearContents();
     ui->tableWidget->setColumnCount(2);
     ui->tableWidget->setRowCount(1);
@@ -175,9 +149,4 @@ void AddRecipe::clearAll(){
 
 }
 
-void AddRecipe::on_pushButton_7_clicked()
-{
 
-    clearAll();
-}
->>>>>>> origin/master

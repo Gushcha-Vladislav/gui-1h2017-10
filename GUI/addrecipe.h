@@ -6,12 +6,8 @@
 #include <QPropertyAnimation>
 #include "about.h"
 #include "QTableWidget"
-<<<<<<< HEAD
 #include <QtSql>
-=======
 #include "QGraphicsPixmapItem"
-
->>>>>>> origin/master
 
 namespace Ui {
 class AddRecipe;
@@ -24,11 +20,8 @@ public:
     explicit AddRecipe(QWidget *parent = 0);
     ~AddRecipe();
     void buttonClicked();
-<<<<<<< HEAD
     void downlandSqllite(QSqlDatabase);
-=======
     void clearAll();
->>>>>>> origin/master
 
 signals:
     void firstWindow();
@@ -48,19 +41,13 @@ private slots:
     void on_pushButton_5_clicked();
     void on_pushButton_7_clicked();
 
-    void on_pushButton_7_clicked();
-
 private:
     Ui::AddRecipe *ui;
     About *about;
-<<<<<<< HEAD
     QSqlDatabase m_db;
     QString fileName;
-=======
     QGraphicsScene *scene;
     QGraphicsPixmapItem *pixItem;
-
->>>>>>> origin/master
 };
 
 #endif // ADDRECIPE_H
