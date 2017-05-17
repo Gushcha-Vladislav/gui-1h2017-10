@@ -15,43 +15,35 @@ namespace Ui {
 class MainWindow;
 }
 
-class MainWindow : public QMainWindow
-{
+class MainWindow : public QMainWindow{
     Q_OBJECT
 
 public:
     explicit MainWindow(QWidget *parent = 0);
-    void SetRecipts(int,int);
     ~MainWindow();
+    void SetRecipts(QString);
     void hideItemAndShowMenu();
     void setRecipe();
     void setMyRecipe();
+    void setMyFavorite();
+    void initListWidget();
+    void download(int);
 
 private slots:
     void on_pushButton_clicked();
     void showItem();
     void on_salad_clicked();
-
     void on_pushButton_3_clicked();
-
     void on_pushButton_4_clicked();
-
     void on_soup_clicked();
-
     void on_g_clicked();
-
     void on_osn_clicked();
-
     void on_desert_clicked();
-
     void on_drinks_clicked();
-
-    void on_listWidget_clicked(const QModelIndex &index);
-
+    void on_listWidget_clicked(const QModelIndex &);
     void on_pushButton_2_clicked();
-
-
     void on_pushButton_6_clicked();
+    void on_pushButton_5_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -60,7 +52,7 @@ private:
     QWidget *parentWidget;
     QVector<Recipte>recipts;
     QSqlDatabase m_db;
-    int recipe;
+    int recipe=0;
     AddRecipe *addRecipe;
 };
 

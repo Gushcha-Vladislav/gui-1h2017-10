@@ -8,8 +8,7 @@ namespace Ui {
 class About;
 }
 
-class About : public QMainWindow
-{
+class About : public QMainWindow{
     Q_OBJECT
 signals:
     void firstWindow();

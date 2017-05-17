@@ -580,6 +580,36 @@
       <pointsize>10</pointsize>
      </font>
     </property>
+    <item>
+     <property name="text">
+      <string>Гарниры</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Десерты</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Напитки</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Основные блюда</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Салаты</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Супы</string>
+     </property>
+    </item>
    </widget>
    <widget class="QTableWidget" name="tableWidget">
     <property name="enabled">

@@ -7,10 +7,8 @@
 #include <QMessageBox>
 
 
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
-{
+MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent),ui(new Ui::MainWindow){
+
     ui->setupUi(this);
     QWidget::setWindowFlags(Qt::FramelessWindowHint);
 
@@ -22,44 +20,49 @@ MainWindow::MainWindow(QWidget *parent) :
             qApp->desktop()->availableGeometry()
         )
     );
-    recipe=0;
-    ui->pushButton->setEnabled(true);
-    ui->listWidget->hide();
+
     window=new Window(parent);
     about=new About(parent);
-    setRecipe();
     addRecipe=new AddRecipe(parent);
+
     window->hide();
     about->hide();
     addRecipe->hide();
     window->setGeometry(0,0,1149,667);
     about->setGeometry(351,187,447,293);
     addRecipe->setGeometry(0,0,1149,667);
+    ui->pushButton->setEnabled(true);
+    ui->listWidget->hide();
+
     connect(window, &Window::firstWindow, this, &MainWindow::show);
     connect(window, &Window::showWindow, this, &MainWindow::hideItemAndShowMenu);
     connect(window, &Window::showRecipe, this, &MainWindow::setRecipe);
     connect(window, &Window::showMyRecipe, this, &MainWindow::setMyRecipe);
-    connect(about, &About::firstWindow, this, &MainWindow::show);
-    m_db=QSqlDatabase::addDatabase("QSQLITE");
-    m_db.setDatabaseName("D:/recipts.sqlite");
+    connect(window, &Window::showMyFavorite, this, &MainWindow::setMyFavorite);
+    connect(about, &About::firstWindow, this, &MainWindow::show);  
     connect(addRecipe, &AddRecipe::firstWindow, this, &MainWindow::show);
     connect(addRecipe, &AddRecipe::showWindow, this, &MainWindow::hideItemAndShowMenu);
     connect(addRecipe, &AddRecipe::showRecipe, this, &MainWindow::setRecipe);
     connect(addRecipe, &AddRecipe::showMyRecipe, this, &MainWindow::setMyRecipe);
+    connect(addRecipe, &AddRecipe::showMyFavorite, this, &MainWindow::setMyFavorite);
+
+    m_db=QSqlDatabase::addDatabase("QSQLITE");
+    m_db.setDatabaseName("../GUI/baza/recipts.sqlite");
+    setRecipe();
 }
 
 void MainWindow::on_pushButton_clicked(){
 
     connect(ui->pushButton, SIGNAL(clicked()), this->parent(), SLOT(closeApp()));
-
 }
 
-MainWindow::~MainWindow()
-{
+MainWindow::~MainWindow(){
+
     delete ui;
 }
 
 void MainWindow::showItem(){
+
     ui->desert->hide();
     ui->drinks->hide();
     ui->g->hide();
@@ -77,6 +80,7 @@ void MainWindow::showItem(){
 }
 
 void MainWindow::hideItemAndShowMenu(){
+
     ui->desert->show();
     ui->drinks->show();
     ui->g->show();
@@ -93,78 +97,56 @@ void MainWindow::hideItemAndShowMenu(){
     ui->listWidget->hide();
 }
 
-void MainWindow::on_salad_clicked()
-{
-    if(!recipe){
-    SetRecipts(5,0);
+void MainWindow::download(int Type){
+    QString Condition;
+    QString t;
+    t.setNum(Type);
+    if(recipe==0){
+    Condition="(((type_recipte)="+t+") AND ((type_in)=0))";
+    SetRecipts(Condition);
     }
-    this->showItem();
-
-}
-
-void MainWindow::on_pushButton_3_clicked()
-{
-    this->hideItemAndShowMenu();
-    setRecipe();
-}
-
-void MainWindow::on_pushButton_4_clicked()
-{
-    this->hideItemAndShowMenu();
-    setMyRecipe();
-}
-
-void MainWindow::on_soup_clicked()
-{
-    if(!recipe){
-    SetRecipts(6,0);
+    if(recipe==1){
+    Condition="(((type_recipte)="+t+") AND ((type_in)=1))";
+    SetRecipts(Condition);
+    }
+    if(recipe==2){
+    Condition="((type_recipte="+t+") AND (favorite=1))";
+    SetRecipts(Condition);
     }
     this->showItem();
 }
 
-void MainWindow::on_g_clicked()
-{
-    if(!recipe){
-    SetRecipts(1,0);
-    }
-    this->showItem();
+void MainWindow::on_g_clicked(){
+
+    download(1);
 }
 
-void MainWindow::on_osn_clicked()
-{
-    if(!recipe){
-    SetRecipts(4,0);
-    }
-    this->showItem();
+void MainWindow::on_desert_clicked(){
+
+    download(2);
 }
 
-void MainWindow::on_desert_clicked()
-{
-    if(!recipe){
-    SetRecipts(2,0);
-    }
-    this->showItem();
+void MainWindow::on_drinks_clicked(){
+
+   download(3);
 }
 
-void MainWindow::on_drinks_clicked()
-{
-    if(!recipe){
-    SetRecipts(3,0); 
-    }
-    this->showItem();
+void MainWindow::on_osn_clicked(){
+
+    download(4);
 }
 
-void MainWindow::on_listWidget_clicked(const QModelIndex &index)
-{
+void MainWindow::on_salad_clicked(){
 
-    window->GetRecipte(recipts.at(index.row()));
-    window->setRecipe(recipe);
-    window->show();
-    this->hide();
+    download(5);
 }
 
-void MainWindow::on_pushButton_2_clicked()
-{
+void MainWindow::on_soup_clicked(){
+
+    download(6);
+}
+
+void MainWindow::on_pushButton_2_clicked(){
 
     about->setWindowModality(Qt::ApplicationModal);
     about->show();
@@ -173,53 +155,61 @@ void MainWindow::on_pushButton_2_clicked()
 
 }
 
-void MainWindow::SetRecipts(int Type_Recipte,int Type_In){
-    ui->listWidget->clear();
+void MainWindow::on_pushButton_3_clicked(){
+
+    this->hideItemAndShowMenu();
+    setRecipe();
+
+}
+
+void MainWindow::on_pushButton_4_clicked(){
+
+    this->hideItemAndShowMenu();
+    setMyRecipe();
+}
+
+void MainWindow::on_pushButton_5_clicked(){
+
+    this->hideItemAndShowMenu();
+    setMyFavorite();
+}
+void MainWindow::on_pushButton_6_clicked(){
+
+    addRecipe->downlandSqllite(m_db);
+    addRecipe->show();
+    this->hide();
+}
+
+void MainWindow::on_listWidget_clicked(const QModelIndex &index){
+
+    window->GetRecipte(recipts.at(index.row()),m_db);
+    window->setRecipe(recipe);
+    window->show();
+    this->hide();
+}
+
+void MainWindow::SetRecipts(QString Condition){
+
     recipts.clear();
-
-
-    if (!m_db.open())
-       {
-          qDebug() << "Error: connection with database fail";
-       }
-       else
-       {
-          qDebug() << "Database: connection ok";
-       }
     QSqlQuery query;
-    QString t1,t2;
-    t1.setNum(Type_Recipte);
-    t2.setNum(Type_In);
-    bool task=query.exec("SELECT id_recipte, name, type_recipte, type_in, description, image FROM recipte WHERE ((type_recipte="+t1+") AND (type_in)="+t2+"); ");
-    if(!task){
-        qDebug() << "Error";
-     }
-     else
-     {
-        qDebug() << "Complite";
-     }
-    while (query.next())
-    {
-       Recipte temp;
+    m_db.open();
+    query.exec("SELECT id_recipte, name, type_recipte, type_in, description, image FROM recipte WHERE "+Condition+" ORDER BY name;");
+    while (query.next()){
 
+       Recipte temp;
        temp.GetId(query.value(0).toInt());
        temp.GetName(query.value(1).toString());
        temp.GetTypeRecipte(query.value(2).toInt());
        temp.GetTypeIn(query.value(3).toInt());
        temp.GetDescription(query.value(4).toString());
        temp.GetImage(query.value(5).toString());
+       temp.GetFavorite(query.value(6).toInt());
        QSqlQuery query2;
-       bool task2=query2.exec("SELECT product.name, recipte_profuct.mass FROM product INNER JOIN recipte_profuct ON product.id_product = recipte_profuct.id_product WHERE (((recipte_profuct.id_recipte)="+query.value(0).toString()+"));");
-       if(!task2){
-           qDebug() << "Error 1";
-        }
-        else
-        {
-           qDebug() << "Complite";
-        }
+       query2.exec("SELECT product.name, recipte_profuct.mass FROM product INNER JOIN recipte_profuct ON product.id_product = recipte_profuct.id_product WHERE (((recipte_profuct.id_recipte)="+query.value(0).toString()+")) ORDER BY product.name;");
        QVector<QString> massa;
        QVector<QString> product;
        while(query2.next()){
+
           massa.push_back(query2.value(1).toString());
           product.push_back(query2.value(0).toString());
        }
@@ -228,30 +218,40 @@ void MainWindow::SetRecipts(int Type_Recipte,int Type_In){
        recipts.push_back(temp);
     }
     m_db.close();
+    initListWidget();
+}
+
+void MainWindow::initListWidget(){
+
+    ui->listWidget->clear();
     for(int i=0;i<recipts.size();i++){
         ui->listWidget->addItem(recipts.at(i).SetName());
         ui->listWidget->item(i)->setTextAlignment(Qt::AlignHCenter);
     }
-
 }
+
 void MainWindow::setRecipe(){
+
     this->recipe=0;
     ui->pushButton_6->hide();
     ui->pushButton_3->setStyleSheet(QString::fromUtf8("background-color: rgb(140, 0, 0);"));
     ui->pushButton_4->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 170, 0);"));
-
+    ui->pushButton_5->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 170, 0);"));
 }
 
 void MainWindow::setMyRecipe(){
+
     this->recipe=1;
     ui->pushButton_6->show();
     ui->pushButton_4->setStyleSheet(QString::fromUtf8("background-color: rgb(140, 0, 0);"));
     ui->pushButton_3->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 170, 0);"));
+    ui->pushButton_5->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 170, 0);"));
 }
+void MainWindow::setMyFavorite(){
 
-
-void MainWindow::on_pushButton_6_clicked()
-{
-    addRecipe->show();
-    this->hide();
+    this->recipe=2;
+    ui->pushButton_6->hide();
+    ui->pushButton_4->setStyleSheet(QString::fromUtf8("background-color:rgb(255, 170, 0);"));
+    ui->pushButton_3->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 170, 0);"));
+    ui->pushButton_5->setStyleSheet(QString::fromUtf8("background-color:  rgb(140, 0, 0);"));
 }

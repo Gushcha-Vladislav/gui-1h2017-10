@@ -29,5 +29,6 @@
         <file>pictures/star.png</file>
         <file>pictures/plus.png</file>
         <file>pictures/add.png</file>
+        <file alias="baza">baza/recipts.sqlite</file>
     </qresource>
 </RCC>
