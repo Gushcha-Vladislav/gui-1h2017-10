@@ -30,5 +30,6 @@
         <file>pictures/plus.png</file>
         <file>pictures/add.png</file>
         <file alias="baza">baza/recipts.sqlite</file>
+        <file>pictures/eats/4_3.jpeg</file>
     </qresource>
 </RCC>
