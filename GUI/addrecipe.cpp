@@ -3,8 +3,7 @@
 #include "QtGui"
 #include "QFileDialog"
 #include "QMessageBox"
-
-
+#include "QErrorMessage"
 
 AddRecipe::AddRecipe(QWidget *parent): QMainWindow(parent), ui(new Ui::AddRecipe){
 
@@ -81,41 +80,54 @@ void AddRecipe::on_pushButton_7_clicked(){
 
     QSqlQuery query;
     QString t1;
-    
-    QPixmap screen=QPixmap::grabWidget(ui->graphicsView);
-    screen.save("../GUI/users/"+ui->textEdit->toPlainText()+".jpg");
+    t1=ui->textEdit->toPlainText();
+    if(t1!=QString ("") ||t1!=QString (" ")){
+        t1=ui->plainTextEdit_2->toPlainText();
+        if(t1!=QString ("") ||t1!=QString (" ")){
+            if(ui->tableWidget->item(0,0)->text()!="" || ui->tableWidget->item(0,1)->text()!=""){
+                t1.setNum(ui->comboBox->currentIndex()+1);
+                m_db.open();
+                QString s="INSERT INTO recipte ( name, type_recipte, type_in, description, image, favorite ) SELECT \""+ui->textEdit->toPlainText()+"\", "+t1+", 1, \""+ui->plainTextEdit_2->toPlainText()+"\", \""+"../GUI/users/"+ui->textEdit->toPlainText()+".jpg\", 0";
+                query.exec(s);
+                s="SELECT id_recipte FROM recipte WHERE (name=\""+ui->textEdit->toPlainText()+"\");";
+                query.exec(s);
+                query.next();
+                QString id;
+                id.setNum(query.value(0).toInt());
+                for(int i=0;i<ui->tableWidget->rowCount();i++){
+                    QString b=ui->tableWidget->item(i,0)->text();
+                    s="SELECT id_product FROM product WHERE (name=\""+b+"\");";
+                    query.exec(s);
+                    QString id_product;
+                    if(query.next()){
+                        id_product.setNum(query.value(0).toInt());
 
-    t1.setNum(ui->comboBox->currentIndex()+1);
-    m_db.open();
-    QString s="INSERT INTO recipte ( name, type_recipte, type_in, description, image, favorite ) SELECT \""+ui->textEdit->toPlainText()+"\", "+t1+", 1, \""+ui->plainTextEdit_2->toPlainText()+"\", \""+fileName+"\", 0";
-    query.exec(s);
-    s="SELECT id_recipte FROM recipte WHERE (name=\""+ui->textEdit->toPlainText()+"\");";
-    query.exec(s);
-    query.next();
-    QString id;
-    id.setNum(query.value(0).toInt());
-    for(int i=0;i<ui->tableWidget->rowCount();i++){
-        QString b=ui->tableWidget->item(i,0)->text();
-        s="SELECT id_product FROM product WHERE (name=\""+b+"\");";
-        query.exec(s);
-        QString id_product;
-        if(query.next()){
-            id_product.setNum(query.value(0).toInt());
+                    }else{
 
+                        s="INSERT INTO product ( name ) SELECT \""+b+"\"";
+                        query.exec(s);
+                        s="SELECT id_product FROM product WHERE (name=\""+b+"\");";
+                        query.exec(s);
+                        query.next();
+                        id_product.setNum(query.value(0).toInt());
+                    }
+                    s="INSERT INTO recipte_profuct ( id_recipte, id_product, mass ) SELECT "+id+","+id_product+",\""+ui->tableWidget->item(i,1)->text()+"\"";
+                    query.exec(s);
+                }
+                QPixmap screen=QPixmap::grabWidget(ui->graphicsView);
+                screen.save("../GUI/users/"+ui->textEdit->toPlainText()+".jpg");
+                m_db.close();
+                clearAll();
+            }else{
+                (new QErrorMessage(this))->showMessage("Введите ингредиенты!");
+            }
         }else{
-
-            s="INSERT INTO product ( name ) SELECT \""+b+"\"";
-            query.exec(s);
-            s="SELECT id_product FROM product WHERE (name=\""+b+"\");";
-            query.exec(s);
-            query.next();
-            id_product.setNum(query.value(0).toInt());
+           (new QErrorMessage(this))->showMessage("Введите описание процесса приготовления!");
         }
-        s="INSERT INTO recipte_profuct ( id_recipte, id_product, mass ) SELECT "+id+","+id_product+",\""+ui->tableWidget->item(i,1)->text()+"\"";
-        query.exec(s);
+    }else{
+        (new QErrorMessage(this))->showMessage("Введите имя!");
     }
-    m_db.close();
-    clearAll();
+
 }
 
 void AddRecipe::on_pushButton_8_clicked(){
@@ -126,7 +138,7 @@ void AddRecipe::on_pushButton_8_clicked(){
 void AddRecipe::on_pushButton_9_clicked()
 {
 
-    fileName = QFileDialog::getOpenFileName(this,
+    QString fileName = QFileDialog::getOpenFileName(this,
                                 QString::fromUtf8("Открыть файл"),
                                 QDir::currentPath(),
                                 "Images (*.png *.xpm *.jpg);;All files (*.*)");

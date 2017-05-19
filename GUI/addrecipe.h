@@ -45,7 +45,6 @@ private:
     Ui::AddRecipe *ui;
     About *about;
     QSqlDatabase m_db;
-    QString fileName;
     QGraphicsScene *scene;
     QGraphicsPixmapItem *pixItem;
 };
