@@ -380,7 +380,13 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string>QPushButton#salad {border-image: url(:/resource/pictures/sticker.png);}</string>
+     <string notr="true">QPushButton#salad {border-image: url(:/resource/pictures/sticker.png);}
+#salad:hover{
+	border-style: solid;
+	border-width: 5px;
+	border-radius: 1px;
+	border-image: url(:/resource/pictures/sticker.png);
+}</string>
     </property>
     <widget class="QWidget" name="widget_7" native="true">
      <property name="geometry">
@@ -418,7 +424,13 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string>QPushButton#soup {border-image: url(:/resource/pictures/sticker.png);}</string>
+     <string notr="true">QPushButton#soup {border-image: url(:/resource/pictures/sticker.png);}
+#soup:hover{
+	border-style: solid;
+	border-width: 5px;
+	border-radius: 1px;
+	border-image: url(:/resource/pictures/sticker.png);
+}</string>
     </property>
     <widget class="QWidget" name="widget_8" native="true">
      <property name="geometry">
@@ -456,7 +468,13 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string>QPushButton#g {border-image: url(:/resource/pictures/sticker.png);}</string>
+     <string notr="true">QPushButton#g {border-image: url(:/resource/pictures/sticker.png);}
+#g:hover{
+	border-style: solid;
+	border-width: 5px;
+	border-radius: 1px;
+	border-image: url(:/resource/pictures/sticker.png);
+}</string>
     </property>
     <widget class="QWidget" name="widget_9" native="true">
      <property name="geometry">
@@ -494,7 +512,13 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string>QPushButton#osn {border-image: url(:/resource/pictures/sticker.png);}</string>
+     <string notr="true">QPushButton#osn {border-image: url(:/resource/pictures/sticker.png);}
+#osn:hover{
+	border-style: solid;
+	border-width: 5px;
+	border-radius: 1px;
+	border-image: url(:/resource/pictures/sticker.png);
+}</string>
     </property>
     <widget class="QWidget" name="widget_10" native="true">
      <property name="geometry">
@@ -532,7 +556,13 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string>QPushButton#desert {border-image: url(:/resource/pictures/sticker.png);}</string>
+     <string notr="true">QPushButton#desert {border-image: url(:/resource/pictures/sticker.png);}
+#desert:hover{
+	border-style: solid;
+	border-width: 5px;
+	border-radius: 1px;
+	border-image: url(:/resource/pictures/sticker.png);
+}</string>
     </property>
     <widget class="QWidget" name="widget_11" native="true">
      <property name="geometry">
@@ -570,7 +600,13 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string>QPushButton#drinks {border-image: url(:/resource/pictures/sticker.png);}</string>
+     <string notr="true">QPushButton#drinks {border-image: url(:/resource/pictures/sticker.png);}
+#drinks:hover{
+	border-style: solid;
+	border-width: 5px;
+	border-radius: 1px;
+	border-image: url(:/resource/pictures/sticker.png);
+}</string>
     </property>
     <widget class="QWidget" name="widget_12" native="true">
      <property name="geometry">
@@ -588,7 +624,8 @@
       <bool>false</bool>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-image: url(:/resource/pictures/drinks.jpg);</string>
+      <string notr="true">border-image: url(:/resource/pictures/drinks.jpg);
+</string>
      </property>
     </widget>
    </widget>
