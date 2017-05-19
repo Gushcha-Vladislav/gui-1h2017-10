@@ -48,14 +48,6 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent),ui(new Ui::MainWind
 
     m_db=QSqlDatabase::addDatabase("QSQLITE");
     m_db.setDatabaseName("../GUI/baza/recipts.sqlite");
-    /*QString a(QApplication::applicationDirPath());
-    int i;
-    for(i=a.length();a.at(i-1)!='/';i--){}
-    i--;
-    for(;a.at(i-1)!='/';i--){}
-    a=a.remove(i-1,a.length()-1)+"/GUI/baza/recipts.sqlite";
-    qDebug()<<a;
-    m_db.setDatabaseName(a);*/
     setRecipe();
 }
 
