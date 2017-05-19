@@ -81,6 +81,10 @@ void AddRecipe::on_pushButton_7_clicked(){
 
     QSqlQuery query;
     QString t1;
+    
+    QPixmap screen=QPixmap::grabWidget(ui->graphicsView);
+    screen.save("../GUI/users/"+ui->textEdit->toPlainText()+".jpg");
+
     t1.setNum(ui->comboBox->currentIndex()+1);
     m_db.open();
     QString s="INSERT INTO recipte ( name, type_recipte, type_in, description, image, favorite ) SELECT \""+ui->textEdit->toPlainText()+"\", "+t1+", 1, \""+ui->plainTextEdit_2->toPlainText()+"\", \""+fileName+"\", 0";
