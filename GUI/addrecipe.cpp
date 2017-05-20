@@ -79,6 +79,7 @@ void AddRecipe::on_pushButton_6_clicked()
 void AddRecipe::on_pushButton_7_clicked(){
 
     QSqlQuery query;
+    QString path(QApplication::applicationDirPath()+"/users/"+ui->textEdit->toPlainText()+".jpg");
     QString t1;
     t1=ui->textEdit->toPlainText();
     if(t1!=QString ("") ||t1!=QString (" ")){
@@ -87,7 +88,7 @@ void AddRecipe::on_pushButton_7_clicked(){
             if(ui->tableWidget->item(0,0)->text()!="" || ui->tableWidget->item(0,1)->text()!=""){
                 t1.setNum(ui->comboBox->currentIndex()+1);
                 m_db.open();
-                QString s="INSERT INTO recipte ( name, type_recipte, type_in, description, image, favorite ) SELECT \""+ui->textEdit->toPlainText()+"\", "+t1+", 1, \""+ui->plainTextEdit_2->toPlainText()+"\", \""+"../GUI/users/"+ui->textEdit->toPlainText()+".jpg\", 0";
+                QString s="INSERT INTO recipte ( name, type_recipte, type_in, description, image, favorite ) SELECT \""+ui->textEdit->toPlainText()+"\", "+t1+", 1, \""+ui->plainTextEdit_2->toPlainText()+"\", \""+path+"\", 0";
                 query.exec(s);
                 s="SELECT id_recipte FROM recipte WHERE (name=\""+ui->textEdit->toPlainText()+"\");";
                 query.exec(s);
@@ -115,7 +116,7 @@ void AddRecipe::on_pushButton_7_clicked(){
                     query.exec(s);
                 }
                 QPixmap screen=QPixmap::grabWidget(ui->graphicsView);
-                screen.save("../GUI/users/"+ui->textEdit->toPlainText()+".jpg");
+                screen.save(path);
                 m_db.close();
                 clearAll();
             }else{

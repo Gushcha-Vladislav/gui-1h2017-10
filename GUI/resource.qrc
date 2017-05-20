@@ -29,7 +29,6 @@
         <file>pictures/star.png</file>
         <file>pictures/plus.png</file>
         <file>pictures/add.png</file>
-        <file alias="baza">baza/recipts.sqlite</file>
         <file>pictures/eats/4_3.jpeg</file>
         <file>pictures/eats/4_4.JPG</file>
         <file>pictures/eats/4_5.jpg</file>
@@ -50,5 +49,7 @@
         <file>pictures/eats/3_3.jpg</file>
         <file>pictures/eats/3_4.jpg</file>
         <file>pictures/eats/3_5.jpg</file>
+        <file>pictures/favicon.ico</file>
+        <file>pictures/ok.png</file>
     </qresource>
 </RCC>

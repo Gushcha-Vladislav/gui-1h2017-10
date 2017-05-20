@@ -47,7 +47,7 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent),ui(new Ui::MainWind
     connect(addRecipe, &AddRecipe::showMyFavorite, this, &MainWindow::setMyFavorite);
 
     m_db=QSqlDatabase::addDatabase("QSQLITE");
-    m_db.setDatabaseName("../GUI/baza/recipts.sqlite");
+    m_db.setDatabaseName(QApplication::applicationDirPath()+"/baza/recipts.sqlite");
     setRecipe();
 }
 
@@ -194,7 +194,7 @@ void MainWindow::SetRecipts(QString Condition){
     recipts.clear();
     QSqlQuery query;
     m_db.open();
-    query.exec("SELECT id_recipte, name, type_recipte, type_in, description, image FROM recipte WHERE "+Condition+" ORDER BY name;");
+    query.exec("SELECT id_recipte, name, type_recipte, type_in, description, image, favorite FROM recipte WHERE "+Condition+" ORDER BY name;");
     while (query.next()){
 
        Recipte temp;

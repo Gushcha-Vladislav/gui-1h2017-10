@@ -945,7 +945,7 @@ p, li { white-space: pre-wrap; }
      <property name="geometry">
       <rect>
        <x>70</x>
-       <y>50</y>
+       <y>40</y>
        <width>171</width>
        <height>111</height>
       </rect>
@@ -996,9 +996,6 @@ p, li { white-space: pre-wrap; }
     </property>
     <property name="cursor">
      <cursorShape>OpenHandCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string>QPushButton#starButton {border-image: url(:/resource/pictures/star.png);}</string>
     </property>
     <property name="styleSheet">
      <string notr="true"/>
