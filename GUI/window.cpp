@@ -24,12 +24,13 @@ Window::Window(QWidget *parent): QMainWindow(parent), ui(new Ui::Window){
         )
     );
 
-    ui->starButton->setToolTip("Добавить в избранное");
+
     ui->pushButton->setEnabled(true);
     ui->tableWidget->setColumnCount(2);
     ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);  
     ui->label->setStyleSheet("qproperty-alignment: AlignCenter;");
     ui->tableWidget->setSelectionMode(QAbstractItemView::NoSelection);
+
 }
 
 void Window::on_pushButton_clicked(){
@@ -64,6 +65,18 @@ void Window::GetRecipte(Recipte Temp,QSqlDatabase M_db){
     temp=Temp;
     ui->textBrowser->clear();
     ui->textBrowser->append(temp.SetDescription());
+    if (temp.SetFavorite()){
+        ui->starButton->setStyleSheet(
+                    "border-image: url(:/resource/pictures/ok.png);"
+                    );
+        //ui->starButton->setToolTip("Рецепт в избранном");
+    } else{
+        //ui->starButton->setToolTip("Добавить в избранное");
+        ui->starButton->setStyleSheet(
+                    "border-image: url(:/resource/pictures/star.png);"
+                    );
+    }
+
     ui->widget_5->setStyleSheet("border-image: url("+Temp.SetImage()+");");
     ui->label->setText(Temp.SetName());
     ui->tableWidget->setRowCount(temp.SetProduct().size());
@@ -130,6 +143,16 @@ void Window::on_starButton_clicked(){
     QString t1;
     t1.setNum(temp.SetId());
     m_db.open();
-    query.exec("UPDATE recipte SET favorite = 1 WHERE (((id_recipte)="+t1+"));");
+    if(!temp.SetFavorite()){
+        temp.GetFavorite(1);
+        query.exec("UPDATE recipte SET favorite = 1 WHERE (((id_recipte)="+t1+"));");
+        ui->starButton->setStyleSheet("border-image: url(:/resource/pictures/ok.png);");
+        //ui->starButton->setToolTip("Рецепт в избранном");
+   }else{
+        temp.GetFavorite(0);
+        query.exec("UPDATE recipte SET favorite = 0 WHERE (((id_recipte)="+t1+"));");
+        //ui->starButton->setToolTip("Добавить в избранное");
+        ui->starButton->setStyleSheet("border-image: url(:/resource/pictures/star.png);");
+   }
     m_db.close();
 }

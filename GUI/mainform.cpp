@@ -26,6 +26,7 @@ MainForm::MainForm(QWidget *parent): QMainWindow(parent), ui(new Ui::MainForm){
 
     MainWindow *w=new MainWindow(this);
     w->setGeometry(0,0,1149,667);
+    QIcon(":/resource/images/favicon.ico");
 }
 
 void MainForm::closeApp(){

@@ -41,5 +41,8 @@ MOBILITY =
 RESOURCES += \
     resource.qrc
 
+DISTFILES += \
+    icon.rc
 
+win32:RC_FILE = icon.rc
 
