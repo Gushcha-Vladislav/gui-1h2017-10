@@ -30,6 +30,7 @@ Window::Window(QWidget *parent): QMainWindow(parent), ui(new Ui::Window){
     ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);  
     ui->label->setStyleSheet("qproperty-alignment: AlignCenter;");
     ui->tableWidget->setSelectionMode(QAbstractItemView::NoSelection);
+   // ui->pushButton_7->hide();
 
 }
 
@@ -147,12 +148,32 @@ void Window::on_starButton_clicked(){
         temp.GetFavorite(1);
         query.exec("UPDATE recipte SET favorite = 1 WHERE (((id_recipte)="+t1+"));");
         ui->starButton->setStyleSheet("border-image: url(:/resource/pictures/ok.png);");
-        //ui->starButton->setToolTip("Рецепт в избранном");
+        ui->starButton->setToolTip("Рецепт в избранном");
    }else{
         temp.GetFavorite(0);
         query.exec("UPDATE recipte SET favorite = 0 WHERE (((id_recipte)="+t1+"));");
-        //ui->starButton->setToolTip("Добавить в избранное");
+        ui->starButton->setToolTip("Добавить в избранное");
         ui->starButton->setStyleSheet("border-image: url(:/resource/pictures/star.png);");
    }
     m_db.close();
+}
+
+void Window::on_pushButton_7_clicked()
+{
+    QSqlQuery query;
+    QString t1;
+    t1.setNum(temp.SetId());
+    m_db.open();
+    if(query.exec("DELETE FROM recipte_profuct WHERE id_recipte="+t1+";")){
+        qDebug()<<"Прошло";
+    }else{
+        qDebug()<<"Ошибка";
+    }
+    if(query.exec("DELETE FROM recipte WHERE id_recipte="+t1+";")){
+        qDebug()<<"Прошло";
+    }else{
+        qDebug()<<"Ошибка";
+    }
+    m_db.close();
+    this->on_pushButton_3_clicked();
 }

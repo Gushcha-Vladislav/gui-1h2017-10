@@ -28,11 +28,15 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent),ui(new Ui::MainWind
     window->hide();
     about->hide();
     addRecipe->hide();
+    ui->listWidget->hide();
+    ui->tableWidget->hide();
+    ui->label_2->hide();
+    ui->pushButton_8->hide();
+
     window->setGeometry(0,0,1149,667);
     about->setGeometry(351,187,447,293);
     addRecipe->setGeometry(0,0,1149,667);
     ui->pushButton->setEnabled(true);
-    ui->listWidget->hide();
 
     connect(window, &Window::firstWindow, this, &MainWindow::show);
     connect(window, &Window::showWindow, this, &MainWindow::hideItemAndShowMenu);
@@ -62,7 +66,8 @@ MainWindow::~MainWindow(){
 }
 
 void MainWindow::showItem(){
-
+    ui->tableWidget->clear();
+    search=0;
     ui->desert->hide();
     ui->drinks->hide();
     ui->g->hide();
@@ -77,10 +82,14 @@ void MainWindow::showItem(){
     ui->label_salad->hide();
     ui->label_soup->hide();
     ui->listWidget->show();
+    ui->tableWidget->hide();
+    ui->label_2->hide();
+    ui->pushButton_8->hide();
 }
 
 void MainWindow::hideItemAndShowMenu(){
-
+    ui->tableWidget->clear();
+    search=0;
     ui->desert->show();
     ui->drinks->show();
     ui->g->show();
@@ -95,6 +104,9 @@ void MainWindow::hideItemAndShowMenu(){
     ui->label_salad->show();
     ui->label_soup->show();
     ui->listWidget->hide();
+    ui->tableWidget->hide();
+    ui->label_2->hide();
+    ui->pushButton_8->hide();
 }
 
 void MainWindow::download(int Type){
@@ -103,15 +115,15 @@ void MainWindow::download(int Type){
     QString t;
     t.setNum(Type);
     if(recipe==0){
-    Condition="(((type_recipte)="+t+") AND ((type_in)=0))";
+    Condition=" recipte WHERE(((type_recipte)="+t+") AND ((type_in)=0))  ORDER BY recipte.name;";
     SetRecipts(Condition);
     }
     if(recipe==1){
-    Condition="(((type_recipte)="+t+") AND ((type_in)=1))";
+    Condition=" recipte WHERE(((type_recipte)="+t+") AND ((type_in)=1))  ORDER BY recipte.name;";
     SetRecipts(Condition);
     }
     if(recipe==2){
-    Condition="((type_recipte="+t+") AND (favorite=1))";
+    Condition=" recipte WHERE((type_recipte="+t+") AND (favorite=1))  ORDER BY recipte.name;";
     SetRecipts(Condition);
     }
     this->showItem();
@@ -194,7 +206,7 @@ void MainWindow::SetRecipts(QString Condition){
     recipts.clear();
     QSqlQuery query;
     m_db.open();
-    query.exec("SELECT id_recipte, name, type_recipte, type_in, description, image, favorite FROM recipte WHERE "+Condition+" ORDER BY name;");
+    query.exec("SELECT recipte.id_recipte, recipte.name, recipte.type_recipte, type_in, recipte.description, recipte.image, recipte.favorite FROM  "+Condition);
     while (query.next()){
 
        Recipte temp;
@@ -255,4 +267,61 @@ void MainWindow::setMyFavorite(){
     ui->pushButton_4->setStyleSheet(QString::fromUtf8("background-color:rgb(255, 170, 0);"));
     ui->pushButton_3->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 170, 0);"));
     ui->pushButton_5->setStyleSheet(QString::fromUtf8("background-color:  rgb(140, 0, 0);"));
+}
+
+void MainWindow::on_pushButton_7_clicked()
+{
+    if(search==0){
+        search=1;
+        ui->tableWidget->show();
+        ui->pushButton_8->show();
+        ui->label_2->show();
+        ui->desert->hide();
+        ui->drinks->hide();
+        ui->g->hide();
+        ui->salad->hide();
+        ui->osn->hide();
+        ui->soup->hide();
+        ui->label_desert->hide();
+        ui->label_drinks->hide();
+        ui->label_g->hide();
+        ui->label_osn->hide();
+        ui->label_osn2->hide();
+        ui->label_salad->hide();
+        ui->label_soup->hide();
+        ui->listWidget->hide();
+    }else{
+        search=0;
+        ui->tableWidget->hide();
+        ui->label_2->hide();
+        ui->pushButton_8->hide();
+        QString  Condition2("");
+        int step=0;
+        int i=0;
+        for(;i<ui->tableWidget->rowCount();i++){
+            if(ui->tableWidget->item(i,0)!=0){
+             Condition2=Condition2+"'"+ui->tableWidget->item(i,0)->text()+"',";
+            }else{
+               step++;
+            }
+        }
+        int leng=Condition2.length();
+        Condition2.remove(leng-1,1);
+        QString t;
+        t.setNum(ui->tableWidget->rowCount()-step);
+        QString Condition(" ((SELECT recipte_profuct.id_recipte AS recipte, Count(recipte_profuct.id_recipte) AS Numbers FROM recipte_profuct WHERE (((recipte_profuct.id_product) In (SELECT product.id_product FROM product WHERE product.name IN ("+Condition2+")))) GROUP BY recipte_profuct.id_recipte) AS Tabless INNER JOIN recipte ON Tabless.recipte = recipte.id_recipte) WHERE (Numbers = "+t+");");
+        if(ui->tableWidget->rowCount()-step>0){
+                SetRecipts(Condition);
+        }
+        ui->listWidget->show();
+        ui->tableWidget->clearContents();
+        ui->tableWidget->setColumnCount(1);
+        ui->tableWidget->setRowCount(1);
+
+    }
+}
+
+void MainWindow::on_pushButton_8_clicked()
+{
+        ui->tableWidget->insertRow(ui->tableWidget->rowCount());
 }
